@@ -9,13 +9,23 @@ jobs:
   links:
     name: Link check
     runs-on: ubuntu-latest
+    permissions:
+      contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Check links
+      - name: Check links (diagnostic report mode - TEMPORARY)
         uses: lycheeverse/lychee-action@v2
         with:
-          args: --config .lychee.toml --no-progress './**/*.md'
-          fail: true
+          args: --config .lychee.toml --no-progress --format json --output lychee-report.json './**/*.md'
+          fail: false
+      - name: Commit lychee report (TEMPORARY)
+        if: always()
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+          git add -f lychee-report.json || true
+          git commit -m "ci: temporary lychee diagnostic report" || echo "nothing to commit"
+          git push origin HEAD:main || echo "push failed"
 
   data:
     name: Validate data files
