@@ -320,6 +320,7 @@ Read before comparing any two figures in this list.
 ## Related repositories
 
 - [awesome-flash-llms](https://github.com/dakotac1994/awesome-flash-llms) — sibling list: cost-performance Flash-class LLMs and their pricing. Speed vs price, side by side.
+- [awesome-decisions-llms](https://github.com/dakotac1994/awesome-decisions-llms) — sibling list: LLMs and systems for decision-making — decision-tuned models, decision benchmarks & evals, frameworks, and key research papers.
 - [awesome-ai-sandboxes](https://github.com/dakotac1994/awesome-ai-sandboxes) — awesome-list of AI sandboxes: managed, OSS, browser, and adjacent.
 - [awesome-ai-agents](https://github.com/dakotac1994/awesome-ai-agents) — awesome-list of AI agent frameworks and ecosystems.
 
