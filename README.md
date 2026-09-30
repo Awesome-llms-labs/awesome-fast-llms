@@ -97,9 +97,9 @@ The industry pattern: same weights, inference-layer-only optimization sold as a 
 - [DeepSeek V4 Flash](https://github.com/arpitbbhayani/the-daily-diff/blob/HEAD/src/content/stories/2026-08-15/12-hn-49310366-deepseek-v4-flash-llm-api-specifications-and-pricing.md) — ✅ 278 tok/s full precision, no quantization (vendor-reported, 2026-08-15). 1M context.
 - [Grok 4-fast](https://github.com/lifejiggy/awesome-grok-skills/blob/HEAD/grok-models/grok-4-fast.md) — ✅ ~108–150 tok/s, TTFT P50 200ms / P99 800ms (independent third-party docs, 2026). xAI's dedicated fast tier, non-reasoning, 2M context.
 - [Command A+](https://cohere.com/blog/command-a-plus) — ✅ 281 tok/s on AA at launch (independent, May 2026); 375 tok/s vendor claim with W4A4 (vendor-reported). 218B sparse MoE running on 2× H100.
-- [North Mini Code](https://venturebeat.com/technology/cohere-open-sources-a-coding-agent-that-runs-on-a-single-h100) — ✅ 210 tok/s, TTFT 0.25s (independent, AA, ~June 2026). Single-H100 open coding model with the lowest TTFT in its class (Apache 2.0).
+- [North Mini Code](https://cohere.com/blog/north-mini-code) — ✅ 210 tok/s, TTFT 0.25s (independent, AA, ~June 2026). Single-H100 open coding model with the lowest TTFT in its class (Apache 2.0).
 - [MiniMax M2.1 HighSpeed](https://aimlapi.com/blog/minimax-highspeed-models-m2-7-vs-m2-1-the-low-latency-ai-guide) — ✅ ~100–120 tok/s vs ~70 standard (independent third-party analysis, 2026). ~1.7× via faster MoE routing/batching.
-- [Mistral Small 3.1](https://venturebeat.com/ai/mistral-just-updated-its-open-source-small-model-from-3-1-to-3-2-heres-why) — ✅ 150 tok/s (vendor-reported, 2025-03-17). 24B dense on a single RTX 4090 or 32GB Mac.
+- [Mistral Small 3.1](https://docs.ai.it.ufl.edu/docs/navigator_models/models/mistralai-mistral-small-3.1-instruct/) — ✅ 150 tok/s (vendor-reported, 2025-03-17). 24B dense on a single RTX 4090 or 32GB Mac.
 - [Ministral 3 3B](https://www.marktechpost.com/2025/12/02/nvidia-and-mistral-ai-bring-10x-faster-inference-for-the-mistral-3-family-on-gb200-nvl72-gpu-systems/) — ✅ 385 tok/s on RTX 5090 (vendor-reported, Dec 2025). 273 tok/s at concurrency 8 on Jetson Thor.
 - [Claude Haiku 4.5](https://pricepertoken.com/pricing-page/model/anthropic-claude-haiku-4-5) — ✅ 78–91 tok/s, TTFT 0.5s (independent, Sept 2026). Not a tok/s leader — included as the canonical "pay 2× for 2.5× speed" Fast-mode vendor tier.
 - [Qwen3.8-Flash-Next](https://artificialanalysis.ai/models/qwen3-8-flash-next) — ✅ 58.1 tok/s, TTFT 2.5s (independent, AA, 2026-08-26). Cautionary "Flash": efficient architecture, below-median API speed on a reasoning model; vendor GB300 cluster claims (16,000+ tok/s/GPU) don't transfer to the API.
@@ -158,7 +158,7 @@ Small, sparse, or architecturally efficient models — fast *by construction*. M
 - [Ministral 3 3B / 8B](https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512) — ⚠️ unverified. Edge dense models (385 tok/s on RTX 5090 per vendor — see API models). **MRL-0.1: research-only; commercial use needs a separate license.**
 - [DeepSeek-R1-Distill-Qwen 1.5B / 7B](https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B) — ⚠️ unverified. Small dense reasoning-distilled models for fast local reasoning. MIT.
 - [GPT-OSS-20B](https://huggingface.co/openai/gpt-oss-20b) — ⚠️ unverified. 21B total / 3.6B active MoE; MXFP4 fits 16GB VRAM; 957 tok/s on Groq LPU (see API models). Apache-2.0.
-- [Granite 4.0 Nano 350M / 1B](https://huggingface.co/ibm-granite/granite-4.0-nano) — ⚠️ unverified. Sub-billion dense models for extreme edge/local speed. Apache-2.0.
+- [Granite 4.0 Nano 350M / 1B](https://huggingface.co/ibm-granite/granite-4.0-h-1b) — ⚠️ unverified. Sub-billion dense models for extreme edge/local speed. Apache-2.0.
 - [SmolLM2 135M / 360M / 1.7B](https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct) — ⚠️ unverified. Ultra-small dense; the floor of the speed/quality trade-off. Apache-2.0.
 
 ### Sparse MoE (few active params)
@@ -256,7 +256,7 @@ The methods behind fast inference. Paper-reported speedups are labeled academic 
 - [vLLM benchmark suite](https://github.com/vllm-project/vllm) — `bench serve/throughput/latency`: request throughput, tok/s, TTFT, TPOT, inter-token latency p99. A user-run harness, not a leaderboard.
 - [GuideLLM](https://github.com/vllm-project/guidellm) — load sweeps on OpenAI-compatible endpoints: TTFT/ITL/tok/s and SLO/capacity analysis. Active OSS project; a tool, not a leaderboard.
 - [MLPerf Inference](https://mlcommons.org) — standardized closed/open datacenter & edge submissions; LLM metrics in tok/s under latency/accuracy constraints. Versioned releases (v5.0: Apr 2025, 17,457 results from 23 organizations). Independent consortium.
-- [ML.ENERGY Leaderboard](https://ml.energy/leaderboard/) — throughput (tok/s), TPOT, energy/request, batch sizes. Community/academic. ([data](https://github.com/ml-energy/leaderboard/tree/master/data/llm_text_generation/chat))
+- [ML.ENERGY Leaderboard](https://ml.energy/leaderboard/) — throughput (tok/s), TPOT, energy/request, batch sizes. Community/academic. ([data](https://github.com/ml-energy/leaderboard))
 - [HF Optimum LLM-Perf Leaderboard](https://huggingface.co/spaces/optimum/llm-perf-leaderboard) — ⚠️ stale (appears inactive since ~Dec 2024). Latency, throughput, energy, memory across hardware/model configs.
 - [LLMPerf leaderboard](https://github.com/matanyaloewenthal/llmperf-leaderboard) — ⚠️ archived/historical. Output throughput and TTFT under reproducible settings. ([harness](https://github.com/ray-project/llmperf))
 
@@ -284,7 +284,7 @@ The methods behind fast inference. Paper-reported speedups are labeled academic 
 ### Emerging ASICs & fabrics
 
 - [Corsair (d-Matrix)](https://www.techradar.com/pro/microsoft-backed-a-tiny-hardware-startup-that-just-launched-its-first-ai-processor-that-does-inference-without-gpu-or-expensive-hbm-memory-and-a-key-nvidia-partner-is-collaborating-with-it?rand=1339) — ✅ 60,000 tok/s on Llama 3 8B per server; 30,000 tok/s on Llama 3 70B per rack (vendor-reported, 2025). Digital in-memory compute: logic in SRAM bit cells, no HBM. Deployed via Parasail for decode.
-- [speedAI240 Slim (Untether AI)](https://eetimes.com/amd-and-untether-take-on-nvidia-in-mlperf-benchmarks/) — ✅ ~3× the queries/sec/watt of 8× NVIDIA H200 (independent, MLPerf ResNet-50, 2024 — pre-LLM-era workload). At-memory compute, 1400+ RISC-V cores, 75W PCIe card.
+- [speedAI240 Slim (Untether AI)](https://www.eetimes.com/amd-and-untether-take-on-nvidia-in-mlperf-benchmarks/) — ✅ ~3× the queries/sec/watt of 8× NVIDIA H200 (independent, MLPerf ResNet-50, 2024 — pre-LLM-era workload). At-memory compute, 1400+ RISC-V cores, 75W PCIe card.
 - [ACF SuperNIC / EMFASYS (Enfabrica)](https://blog.enfabrica.net/enfabrica-unveils-industrys-first-ethernet-based-ai-memory-fabric-system-for-efficient-8078bd89fdcb?gi=bb7dc18d4956) — ✅ up to 50% lower cost per token (vendor-reported, 2025–2026). 3.2 Tbps Ethernet fabric + CXL memory pooling offloads KV-cache/prefill memory from GPU HBM.
 - [Sohu (Etched)](https://www.techtimes.com/articles/319393/20260630/transformer-chip-startup-etched-exits-stealth-800m-raised-1b-contracts.htm) — ✅ 500,000 tok/s on Llama 70B claimed; first racks shipped summer 2026 (vendor-reported, June 2026 — independent verification pending). Transformer-only ASIC, attention wired into silicon (TSMC N4P).
 - [Asimov (Positron AI)](https://www.techtimes.com/articles/327400/20260912/positron-ai-raises-875m-prove-commodity-memory-can-beat-hbm-inference.htm) — ⚠️ unverified (26× tokens/$ vs GB300 NVL72 is simulation-only). Inference ASIC on commodity LPDDR5X instead of HBM; Atlas (FPGA gen) deployed at OCI (vendor-reported). $875M raised Sept 2026.
