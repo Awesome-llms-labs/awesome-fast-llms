@@ -1,0 +1,135 @@
+{
+  "total": 211,
+  "unique": 181,
+  "successful": 204,
+  "unknown": 0,
+  "unsupported": 0,
+  "timeouts": 0,
+  "redirects": 13,
+  "remaps": 0,
+  "excludes": 4,
+  "errors": 3,
+  "cached": 1,
+  "success_map": {},
+  "error_map": {
+    "README.md": [
+      {
+        "url": "https://primanews.org/inside-the-inference-hardware-revolution-of-2026/",
+        "status": {
+          "text": "Network error: SSL certificate not trusted. Use --insecure if site is trusted (error sending request for url (https://primanews.org/inside-the-inference-hardware-revolution-of-2026/))",
+          "details": "SSL certificate not trusted. Use --insecure if site is trusted"
+        },
+        "span": {
+          "line": 292,
+          "column": 3
+        },
+        "duration": {
+          "secs": 0,
+          "nanos": 520347623
+        }
+      },
+      {
+        "url": "https://www.globenewswire.com/news-release/2026/09/28/3369931/0/en/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud.html",
+        "status": {
+          "text": "Network error: HTTP/2 protocol error. Server may not support HTTP/2 properly (error sending request for url (https://www.globenewswire.com/news-release/2026/09/28/3369931/0/en/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud.html))",
+          "details": "HTTP/2 protocol error. Server may not support HTTP/2 properly"
+        },
+        "span": {
+          "line": 135,
+          "column": 3
+        },
+        "duration": {
+          "secs": 0,
+          "nanos": 123343415
+        }
+      },
+      {
+        "url": "https://www.eetimes.com/amd-and-untether-take-on-nvidia-in-mlperf-benchmarks/",
+        "status": {
+          "text": "Network error: HTTP/2 protocol error. Server may not support HTTP/2 properly (error sending request for url (https://www.eetimes.com/amd-and-untether-take-on-nvidia-in-mlperf-benchmarks/))",
+          "details": "HTTP/2 protocol error. Server may not support HTTP/2 properly"
+        },
+        "span": {
+          "line": 287,
+          "column": 3
+        },
+        "duration": {
+          "secs": 0,
+          "nanos": 112288481
+        }
+      }
+    ]
+  },
+  "timeout_map": {},
+  "suggestion_map": {},
+  "redirect_map": {},
+  "excluded_map": {
+    "README.md": [
+      {
+        "url": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+        "status": {
+          "text": "Excluded",
+          "details": "This is due to your 'exclude' values"
+        },
+        "span": {
+          "line": 105,
+          "column": 3
+        },
+        "duration": {
+          "secs": 0,
+          "nanos": 38422
+        }
+      },
+      {
+        "url": "https://blog.enfabrica.net/enfabrica-unveils-industrys-first-ethernet-based-ai-memory-fabric-system-for-efficient-8078bd89fdcb?gi=bb7dc18d4956",
+        "status": {
+          "text": "Excluded",
+          "details": "This is due to your 'exclude' values"
+        },
+        "span": {
+          "line": 288,
+          "column": 3
+        },
+        "duration": {
+          "secs": 0,
+          "nanos": 26870
+        }
+      },
+      {
+        "url": "https://artificialanalysis.ai/",
+        "status": {
+          "text": "Excluded",
+          "details": "This is due to your 'exclude' values"
+        },
+        "span": {
+          "line": 253,
+          "column": 3
+        },
+        "duration": {
+          "secs": 0,
+          "nanos": 3256
+        }
+      },
+      {
+        "url": "https://artificialanalysis.ai/leaderboards/models",
+        "status": {
+          "text": "Excluded",
+          "details": "This is due to your 'exclude' values"
+        },
+        "span": {
+          "line": 252,
+          "column": 3
+        },
+        "duration": {
+          "secs": 0,
+          "nanos": 16982
+        }
+      }
+    ]
+  },
+  "duration": {
+    "secs": 2,
+    "nanos": 626879329
+  },
+  "detailed_stats": false
+}
