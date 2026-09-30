@@ -9,50 +9,13 @@ jobs:
   links:
     name: Link check
     runs-on: ubuntu-latest
-    permissions:
-      contents: write
     steps:
       - uses: actions/checkout@v4
-      - name: Diagnostic lychee run (TEMPORARY)
-        run: |
-          curl -sfL -o /tmp/lychee.tgz https://github.com/lycheeverse/lychee/releases/download/lychee-v0.24.2/lychee-x86_64-unknown-linux-gnu.tar.gz
-          mkdir -p /tmp/lychee-bin && tar xzf /tmp/lychee.tgz -C /tmp/lychee-bin
-          /tmp/lychee-bin/lychee-x86_64-unknown-linux-gnu/lychee --config .lychee.toml --no-progress --format json --output /tmp/lychee-report.json './**/*.md' || echo "lychee exit: $?"
-          ls -la /tmp/lychee-report.json || echo "NO REPORT PRODUCED"
-      - name: Send report back via API (TEMPORARY)
-        if: always()
-        env:
-          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: |
-          if [ -f /tmp/lychee-report.json ]; then
-            python3 - <<'PYEOF'
-          import base64, json, os, urllib.request
-          repo = os.environ["GITHUB_REPOSITORY"]
-          token = os.environ["GH_TOKEN"]
-          content = base64.b64encode(open("/tmp/lychee-report.json","rb").read()).decode()
-          sha = None
-          try:
-              req = urllib.request.Request(
-                  f"https://api.github.com/repos/{repo}/contents/lychee-report.json?ref=main",
-                  headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"})
-              with urllib.request.urlopen(req) as r:
-                  sha = json.load(r)["sha"]
-          except Exception as e:
-              print("no existing report:", e)
-          payload = {"message": "ci: temporary lychee diagnostic report",
-                     "content": content, "branch": "main"}
-          if sha:
-              payload["sha"] = sha
-          req = urllib.request.Request(
-              f"https://api.github.com/repos/{repo}/contents/lychee-report.json",
-              data=json.dumps(payload).encode(), method="PUT",
-              headers={"Authorization": f"Bearer {token}", "Accept": "application/vnd.github+json"})
-          with urllib.request.urlopen(req) as r:
-              print("uploaded:", r.status)
-          PYEOF
-          else
-            echo "no report file produced"
-          fi
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config .lychee.toml --no-progress './**/*.md'
+          fail: true
 
   data:
     name: Validate data files

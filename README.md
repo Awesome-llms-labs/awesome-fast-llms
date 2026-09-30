@@ -289,7 +289,7 @@ The methods behind fast inference. Paper-reported speedups are labeled academic 
 - [Sohu (Etched)](https://www.techtimes.com/articles/319393/20260630/transformer-chip-startup-etched-exits-stealth-800m-raised-1b-contracts.htm) — ✅ 500,000 tok/s on Llama 70B claimed; first racks shipped summer 2026 (vendor-reported, June 2026 — independent verification pending). Transformer-only ASIC, attention wired into silicon (TSMC N4P).
 - [Asimov (Positron AI)](https://www.techtimes.com/articles/327400/20260912/positron-ai-raises-875m-prove-commodity-memory-can-beat-hbm-inference.htm) — ⚠️ unverified (26× tokens/$ vs GB300 NVL72 is simulation-only). Inference ASIC on commodity LPDDR5X instead of HBM; Atlas (FPGA gen) deployed at OCI (vendor-reported). $875M raised Sept 2026.
 - [RNGD (FuriosaAI)](https://furiosa.ai/rngd) — ✅ 3,200–3,300 tok/s on Llama 3.1 8B FP8 per chip — 60 users @ 40 tok/s per server (vendor-reported, 2026). Tensor Contraction Processor, TSMC 5nm, 48GB HBM3, 180W; LG AI Research production perf/watt validation.
-- [Napier (Tensordyne)](https://primanews.org/inside-the-inference-hardware-revolution-of-2026/) — ✅ up to 1,300 tok/s per user at <1/10th the power of comparable NVIDIA hardware (vendor-reported, 2026, via secondary report — directional). Logarithmic number system rack-scale hardware.
+- [Napier (Tensordyne)](https://dailyaibrief.com/news/tensordyne-napier-ai-inference-chip-72-processor-pod-krE5v9Nj) — ✅ ~1,300 tok/s per user projected in high-speed mode (vendor whitepaper modeling; not independently verified — directional, Sept 2026). Logarithmic number system rack-scale hardware.
 
 ---
 
