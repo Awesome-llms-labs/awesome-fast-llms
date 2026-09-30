@@ -1,0 +1,62 @@
+name: ci
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+
+jobs:
+  links:
+    name: Link check
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Check links
+        uses: lycheeverse/lychee-action@v2
+        with:
+          args: --config .lychee.toml --no-progress './**/*.md'
+          fail: true
+
+  data:
+    name: Validate data files
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+      - name: Validate fast-llms.json
+        run: |
+          python3 - <<'EOF'
+          import json
+
+          required = {"name", "vendor", "url", "description",
+                      "speed_claim", "speed_verified", "speed_url",
+                      "measured_date", "claim_type",
+                      "status", "category", "features"}
+          statuses = {"active", "maintenance", "archived", "commercial"}
+          categories = {"model", "provider", "engine", "technique",
+                        "benchmark", "hardware"}
+          claim_types = {"vendor-reported", "independent"}
+
+          data = json.load(open("data/fast-llms.json"))
+          assert isinstance(data, list) and data, "data/fast-llms.json must be a non-empty list"
+          for i, e in enumerate(data):
+              missing = required - e.keys()
+              assert not missing, f"entry {i} ({e.get('name')}) missing {missing}"
+              assert e["category"] in categories, f"entry {i} bad category {e['category']}"
+              assert e["status"] in statuses, f"entry {i} bad status {e['status']}"
+              assert e["claim_type"] in claim_types, f"entry {i} bad claim_type {e['claim_type']}"
+              assert isinstance(e["speed_verified"], bool), f"entry {i} speed_verified not bool"
+              assert e["url"].startswith("https://"), f"entry {i} url must be https"
+              if e["speed_verified"]:
+                  assert e["speed_url"].startswith("https://"), \
+                      f"entry {i} ({e.get('name')}) verified speed needs https speed_url"
+                  assert e["measured_date"] not in ("", "unknown"), \
+                      f"entry {i} ({e.get('name')}) verified speed needs a measured_date"
+              assert isinstance(e["features"], list) and e["features"], \
+                  f"entry {i} features must be non-empty list"
+          names = [e["name"] for e in data]
+          assert len(names) == len(set(names)), "duplicate names in data/fast-llms.json"
+          print(f"OK: data/fast-llms.json: {len(data)} entries validated")
+          EOF

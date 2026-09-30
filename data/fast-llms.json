@@ -1,0 +1,2567 @@
+[
+  {
+    "name": "Celeris-1",
+    "vendor": "Celeris",
+    "url": "https://celeris.ai/",
+    "description": "Diffusion LLM topping the Artificial Analysis speed leaderboard at ~1.5-1.6K tok/s.",
+    "speed_claim": "1,490-1,612 tok/s, TTFT 0.62s",
+    "speed_verified": true,
+    "speed_url": "https://artificialanalysis.ai/leaderboards/models",
+    "measured_date": "2026-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Diffusion architecture: parallel token refinement, not autoregressive",
+      "AA's fastest model on the leaderboard (Sept 2026)",
+      "Vendor homepage claims up to 2,038 tok/s (vendor-reported)",
+      "API-only model; thin public hardware details"
+    ]
+  },
+  {
+    "name": "Mercury 2.5",
+    "vendor": "Inception Labs",
+    "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+    "description": "Diffusion LLM: 1,107 tok/s on commodity NVIDIA GPUs per vendor; ~677 tok/s on AA.",
+    "speed_claim": "1,107 tok/s (vendor), 677 tok/s (AA)",
+    "speed_verified": true,
+    "speed_url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+    "measured_date": "2026-09-08",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Launched 2026-09-08; fastest production API model on commodity GPUs",
+      "Diffusion architecture generates chunks in parallel",
+      "Sub-170ms TTFT claimed for Mercury Voice preview",
+      "Haiku/Luna-tier quality at 260K context per vendor"
+    ]
+  },
+  {
+    "name": "Mercury 2",
+    "vendor": "Inception Labs",
+    "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+    "description": "Earlier diffusion model: 770 tok/s but 3.07s TTFT - the diffusion throughput trap.",
+    "speed_claim": "770 tok/s, TTFT 3.07s",
+    "speed_verified": true,
+    "speed_url": "https://artificialanalysis.ai/leaderboards/models",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Massive tok/s, poor first-token latency for voice use",
+      "Diffusion models pay a first-chunk penalty",
+      "AA provider leaderboard, 2026-08-30"
+    ]
+  },
+  {
+    "name": "GPT-OSS-120B on Cerebras",
+    "vendor": "Cerebras / OpenAI",
+    "url": "https://www.cerebras.ai/press-release/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud-deployment",
+    "description": "Fastest publicly measured 120B-class serving: 1,697 tok/s, TTFT 0.49s on AA.",
+    "speed_claim": "1,697 tok/s, TTFT 0.49s (AA); ~3,000 vendor claim",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "WSE-3 wafer-scale chip, ~21 PB/s on-chip memory bandwidth",
+      "Vendor docs claim ~3,000 tok/s (vendor-reported, Sept 2026)",
+      "Community 3,730 tok/s reading flagged as socket-chunking noise"
+    ]
+  },
+  {
+    "name": "GPT-OSS-120B on Groq",
+    "vendor": "Groq / OpenAI",
+    "url": "https://groq.com/blog/inside-the-lpu-deconstructing-groq-speed",
+    "description": "LPU-served 120B MoE at ~473-493 tok/s on AA; Cerebras beats it 3-8x.",
+    "speed_claim": "473-493 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://artificialanalysis.ai/leaderboards/models",
+    "measured_date": "2026-08",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Deterministic LPU dataflow architecture",
+      "Groq's historical claim: Llama 3 70B at 1,660+ tok/s with speculative decoding"
+    ]
+  },
+  {
+    "name": "GPT-OSS-20B on Groq",
+    "vendor": "Groq / OpenAI",
+    "url": "https://groq.com/blog/inside-the-lpu-deconstructing-groq-speed",
+    "description": "Small open MoE at 957 tok/s, TTFT 0.82s on AA - the LPU sweet spot.",
+    "speed_claim": "957 tok/s, TTFT 0.82s",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "~1K tok/s with sub-second TTFT",
+      "21B total / 3.6B active MoE fits 16GB VRAM (MXFP4)"
+    ]
+  },
+  {
+    "name": "Gemma 4 31B on Groq 3 LPX",
+    "vendor": "NVIDIA / Google",
+    "url": "https://www.techtimes.com/articles/325425/20260825/groq-3-lpx-hits-full-production-sram-decode-chip-reaches-3400-tokens-per-second.htm",
+    "description": "3,431 tok/s at 100K context - fastest recorded for the model (NVIDIA-run test).",
+    "speed_claim": "3,431 tok/s @100K ctx",
+    "speed_verified": true,
+    "speed_url": "https://www.theregister.com/systems/2026/08/24/what-nvidias-first-groq-3-lpu-benchmarks-tell-us-about-its-20b-gamble/5291880",
+    "measured_date": "2026-08-24",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Groq 3 LPX: SRAM decode chip, Vera Rubin platform",
+      "~4x the next result (Cerebras ~882 tok/s) in that test",
+      "Independent = NVIDIA-run benchmark, not vendor"
+    ]
+  },
+  {
+    "name": "Gemma 4 31B on Cerebras",
+    "vendor": "Cerebras / Google",
+    "url": "https://www.cerebras.ai/press-release/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud-deployment",
+    "description": "Small dense model on WSE-3: 1,351 tok/s, TTFT 0.53s on AA.",
+    "speed_claim": "1,351 tok/s, TTFT 0.53s",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Shows what wafer-scale silicon does to a 31B checkpoint"
+    ]
+  },
+  {
+    "name": "Kimi K2.6 on Cerebras",
+    "vendor": "Cerebras / Moonshot AI",
+    "url": "https://www.cerebras.ai/press-release/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud-deployment",
+    "description": "1T-param MoE (32B active) at 981 tok/s on AA - 6.7x the next-best GPU cloud.",
+    "speed_claim": "981 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://cryptobriefing.com/cerebras-981-tokens-kimi-k2-gpu-speed/",
+    "measured_date": "2026-05",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "10K-in/500-out coding task in 5.6s vs 163.7s on Moonshot's own endpoint (29x)",
+      "Proof that 1T-param MoE runs near-1000 tok/s on wafer-scale"
+    ]
+  },
+  {
+    "name": "DeepSeek-R1 671B on SambaNova",
+    "vendor": "SambaNova / DeepSeek",
+    "url": "https://sambanova.ai/press/fastest-deepseek-r1-671b-with-highest-efficiency",
+    "description": "Full 671B reasoning model at 198 tok/s/user on 16 SN40L RDUs.",
+    "speed_claim": "198 tok/s/user",
+    "speed_verified": true,
+    "speed_url": "https://sambanova.ai/press/fastest-deepseek-r1-671b-with-highest-efficiency",
+    "measured_date": "2025-02-13",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Three-tier memory RDU architecture; 3x speed, 5x efficiency of GPUs claimed",
+      "AA independently measured >195 tok/s for that deployment",
+      "A model that does 30-80 tok/s on typical GPU serving"
+    ]
+  },
+  {
+    "name": "OpenAI Ultrafast (GPT-5.6 Sol)",
+    "vendor": "OpenAI",
+    "url": "https://openai.com/index/previewing-ultrafast/",
+    "description": "Speed-class service tier on Cerebras: up to 750 tok/s, 14x Standard processing speed.",
+    "speed_claim": "750 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://openai.com/index/previewing-ultrafast/",
+    "measured_date": "2026-08-13",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Not a model - a speed tier for the flagship",
+      "First 'frontier model at Cerebras speed' product",
+      "Limited preview, no published pricing"
+    ]
+  },
+  {
+    "name": "OpenAI Codex-Spark",
+    "vendor": "OpenAI",
+    "url": "https://runtimewire.com/article/openai-ultra-fast-eight-times-speed-devday-2026",
+    "description": "Cerebras-served coding model at 1,000+ tok/s for real-time use.",
+    "speed_claim": "1,000+ tok/s",
+    "speed_verified": true,
+    "speed_url": "https://runtimewire.com/article/openai-ultra-fast-eight-times-speed-devday-2026",
+    "measured_date": "2026-02",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "OpenAI's earlier Cerebras partnership product",
+      "Latency is the feature for real-time coding"
+    ]
+  },
+  {
+    "name": "GPT-6 Luna",
+    "vendor": "OpenAI",
+    "url": "https://softreviewed.com/openai-gpt-6-sol-and-luna-review/",
+    "description": "OpenAI's fast tier: ~175 tok/s, TTFT 0.71s; Fast processing tier = 2.5x speed at 2x price.",
+    "speed_claim": "175 tok/s, TTFT 0.71s",
+    "speed_verified": true,
+    "speed_url": "https://softreviewed.com/openai-gpt-6-sol-and-luna-review/",
+    "measured_date": "2026-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "1.05M context; fast per-token, not per-task",
+      "Released 2026-09-22"
+    ]
+  },
+  {
+    "name": "Gemini 3.5 Flash-Lite",
+    "vendor": "Google",
+    "url": "https://github.com/yinjialu/ai-frontier-daily/blob/HEAD/data/firsthand/deepmind-blog/07-introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber.md",
+    "description": "Google's fastest 3.5-class model: 350 tok/s per DeepMind; ~382 on AA.",
+    "speed_claim": "350 tok/s (vendor), ~382 (AA)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/yinjialu/ai-frontier-daily/blob/HEAD/data/firsthand/deepmind-blog/07-introducing-gemini-36-flash-35-flash-lite-and-35-flash-cyber.md",
+    "measured_date": "2026-07-21",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Explicitly positioned as the speed tier",
+      "Beats prior Flash-Lite generations on agentic evals"
+    ]
+  },
+  {
+    "name": "Gemini 2.5 Flash-Lite",
+    "vendor": "Google",
+    "url": "https://github.com/tonehq/tone/blob/HEAD/docs/MODEL_BENCHMARKS.md",
+    "description": "Older Flash-Lite still among the fastest first-party throughputs: 393-887 tok/s.",
+    "speed_claim": "393-887 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://github.com/tonehq/tone/blob/HEAD/docs/MODEL_BENCHMARKS.md",
+    "measured_date": "2026-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Third-party benchmark compilation; earlier AA reports ~682 tok/s"
+    ]
+  },
+  {
+    "name": "GLM-5.3-FlashX",
+    "vendor": "Z.AI",
+    "url": "https://bbx.com/article/553435",
+    "description": "Inference-only speed variant: 200 tok/s, 5x GLM-5.3-Flash at 2.5x price.",
+    "speed_claim": "200 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://bbx.com/article/553435",
+    "measured_date": "2026-09-18",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Same weights/intelligence, inference-layer-only optimization",
+      "Infra optimized by a GLM-5.3-driven 'Infra Agent' in under two weeks",
+      "Launched 2026-09-18"
+    ]
+  },
+  {
+    "name": "Kimi K2.7-Code HighSpeed",
+    "vendor": "Moonshot AI",
+    "url": "https://www.techtimes.com/articles/318414/20260615/kimi-k27-code-adds-highspeed-mode-skips-independent-benchmark-submission.htm",
+    "description": "180-260 tok/s, ~6x the standard release; no independent benchmark submitted.",
+    "speed_claim": "180-260 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://www.techtimes.com/articles/318414/20260615/kimi-k27-code-adds-highspeed-mode-skips-independent-benchmark-submission.htm",
+    "measured_date": "2026-06-15",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Day-one HighSpeed variant for agentic coding loops",
+      "Speed claim rests entirely on Moonshot's own numbers"
+    ]
+  },
+  {
+    "name": "Kimi K2 Turbo",
+    "vendor": "Moonshot AI",
+    "url": "https://platform.moonshot.ai/docs/guide/agent-support",
+    "description": "Persistent high-speed API track: stable 60 tok/s, max 100 tok/s.",
+    "speed_claim": "60-100 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://platform.moonshot.ai/docs/guide/agent-support",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Tracks the latest K2 with boosted inference"
+    ]
+  },
+  {
+    "name": "DeepSeek V4.1 Flash",
+    "vendor": "DeepSeek",
+    "url": "https://codersera.com/blog/deepseek-v4-1-flash-complete-guide-2026/",
+    "description": "552B MoE at 219 tok/s, TTFT ~1s on AA - ~3x faster than its own V4-Pro.",
+    "speed_claim": "219 tok/s, TTFT ~1s",
+    "speed_verified": true,
+    "speed_url": "https://codersera.com/blog/deepseek-v4-1-flash-complete-guide-2026/",
+    "measured_date": "2026-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Tiny active params per token (MoE)",
+      "DeepSeek's own API measured ~214 tok/s"
+    ]
+  },
+  {
+    "name": "DeepSeek V4 Flash",
+    "vendor": "DeepSeek",
+    "url": "https://github.com/arpitbbhayani/the-daily-diff/blob/HEAD/src/content/stories/2026-08-15/12-hn-49310366-deepseek-v4-flash-llm-api-specifications-and-pricing.md",
+    "description": "278 tok/s full precision with no quantization; 1M context.",
+    "speed_claim": "278 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://github.com/arpitbbhayani/the-daily-diff/blob/HEAD/src/content/stories/2026-08-15/12-hn-49310366-deepseek-v4-flash-llm-api-specifications-and-pricing.md",
+    "measured_date": "2026-08-15",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Full-precision speed claim - refuses the quantization tradeoff",
+      "RunInfra third-party: 260.4 tok/s end-to-end, TTFT 834ms"
+    ]
+  },
+  {
+    "name": "Grok 4-fast",
+    "vendor": "xAI",
+    "url": "https://github.com/lifejiggy/awesome-grok-skills/blob/HEAD/grok-models/grok-4-fast.md",
+    "description": "xAI's dedicated fast tier: ~108-150 tok/s, TTFT P50 200ms / P99 800ms.",
+    "speed_claim": "108-150 tok/s, TTFT P50 0.2s",
+    "speed_verified": true,
+    "speed_url": "https://github.com/lifejiggy/awesome-grok-skills/blob/HEAD/grok-models/grok-4-fast.md",
+    "measured_date": "2026",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Non-reasoning mode, 2M context",
+      "Grok 4.20 Beta hit 265 tok/s on xAI's API per AA (Mar 2026)"
+    ]
+  },
+  {
+    "name": "Command A+",
+    "vendor": "Cohere",
+    "url": "https://cohere.com/blog/command-a-plus",
+    "description": "218B sparse MoE: 281 tok/s on AA at launch; 375 tok/s vendor claim with W4A4.",
+    "speed_claim": "281 tok/s (AA), 375 (vendor)",
+    "speed_verified": true,
+    "speed_url": "https://cohere.com/blog/command-a-plus",
+    "measured_date": "2026-05",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "218B total / 25B active; runs on 2x H100",
+      "Quantization-aware distillation, near-lossless"
+    ]
+  },
+  {
+    "name": "North Mini Code",
+    "vendor": "Cohere",
+    "url": "https://venturebeat.com/technology/cohere-open-sources-a-coding-agent-that-runs-on-a-single-h100",
+    "description": "Single-H100 open coding model: 210 tok/s, TTFT 0.25s - lowest in its class.",
+    "speed_claim": "210 tok/s, TTFT 0.25s",
+    "speed_verified": true,
+    "speed_url": "https://venturebeat.com/technology/cohere-open-sources-a-coding-agent-that-runs-on-a-single-h100",
+    "measured_date": "2026-06",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache 2.0 open weights",
+      "8th of 127 open-weight models on AA; 2.8x throughput vs Mistral Devstral Small 2 claimed"
+    ]
+  },
+  {
+    "name": "MiniMax M2.1 HighSpeed",
+    "vendor": "MiniMax",
+    "url": "https://aimlapi.com/blog/minimax-highspeed-models-m2-7-vs-m2-1-the-low-latency-ai-guide",
+    "description": "Inference-only speed variant: ~100-120 tok/s vs ~70 standard.",
+    "speed_claim": "100-120 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://aimlapi.com/blog/minimax-highspeed-models-m2-7-vs-m2-1-the-low-latency-ai-guide",
+    "measured_date": "2026",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Same MoE weights; faster MoE routing/batching",
+      "~1.7x the standard tier"
+    ]
+  },
+  {
+    "name": "Mistral Small 3.1",
+    "vendor": "Mistral AI",
+    "url": "https://venturebeat.com/ai/mistral-just-updated-its-open-source-small-model-from-3-1-to-3-2-heres-why",
+    "description": "24B dense at 150 tok/s; runs on a single RTX 4090 or 32GB Mac.",
+    "speed_claim": "150 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://venturebeat.com/ai/mistral-just-updated-its-open-source-small-model-from-3-1-to-3-2-heres-why",
+    "measured_date": "2025-03-17",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache 2.0; GPT-4o-mini-tier quality at workstation scale"
+    ]
+  },
+  {
+    "name": "Ministral 3 3B",
+    "vendor": "Mistral AI",
+    "url": "https://www.marktechpost.com/2025/12/02/nvidia-and-mistral-ai-bring-10x-faster-inference-for-the-mistral-3-family-on-gb200-nvl72-gpu-systems/",
+    "description": "Edge dense model: 385 tok/s on RTX 5090; 273 tok/s at concurrency 8 on Jetson Thor.",
+    "speed_claim": "385 tok/s (RTX 5090)",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2025/12/02/nvidia-and-mistral-ai-bring-10x-faster-inference-for-the-mistral-3-family-on-gb200-nvl72-gpu-systems/",
+    "measured_date": "2025-12",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "NVIDIA x Mistral optimization push for GB200 NVL72",
+      "Workstation/robotics speed numbers"
+    ]
+  },
+  {
+    "name": "Claude Haiku 4.5",
+    "vendor": "Anthropic",
+    "url": "https://pricepertoken.com/pricing-page/model/anthropic-claude-haiku-4-5",
+    "description": "Anthropic's fastest tier: 78-91 tok/s, TTFT 0.5s; Fast mode buys 2.5x tok/s at 2x price.",
+    "speed_claim": "78-91 tok/s, TTFT 0.5s",
+    "speed_verified": true,
+    "speed_url": "https://pricepertoken.com/pricing-page/model/anthropic-claude-haiku-4-5",
+    "measured_date": "2026-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Not a tok/s leader; the canonical 'pay 2x for 2.5x speed' vendor tier",
+      "OpenRouter/aggregator measurements, Sept 2026"
+    ]
+  },
+  {
+    "name": "Qwen3.8-Flash-Next",
+    "vendor": "Alibaba",
+    "url": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+    "description": "Cautionary 'Flash': 58.1 tok/s, TTFT 2.5s on AA - a reasoning model below class median.",
+    "speed_claim": "58.1 tok/s, TTFT 2.5s",
+    "speed_verified": true,
+    "speed_url": "https://artificialanalysis.ai/models/qwen3-8-flash-next",
+    "measured_date": "2026-08-26",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "'Flash' = efficient architecture (sparse attention), not API speed",
+      "Vendor GB300 claim: 16,000+ tok/s/GPU aggregate - cluster claim vs API reality gap"
+    ]
+  },
+  {
+    "name": "Nemotron 3.5 Lightning on Fireworks",
+    "vendor": "Fireworks / NVIDIA",
+    "url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "description": "30B/3B-active Mamba-2 hybrid at 501 tok/s, TTFT 0.46s on AA.",
+    "speed_claim": "501 tok/s, TTFT 0.46s",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "NVIDIA's distilled execution-layer model (128 routed / 6 active + 1 shared)",
+      "Built-in multi-token prediction"
+    ]
+  },
+  {
+    "name": "Nemotron 3 Ultra on DeepInfra",
+    "vendor": "DeepInfra / NVIDIA",
+    "url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "description": "550B MoE at 371 tok/s, TTFT 0.28s on AA - sub-300ms first token at this scale.",
+    "speed_claim": "371 tok/s, TTFT 0.28s",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Among the lowest first-token latencies for a model this size"
+    ]
+  },
+  {
+    "name": "GPT-OSS-120B on Baseten",
+    "vendor": "Baseten / OpenAI",
+    "url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "description": "TTFT champion: 0.23s first token at 266 tok/s on AA's 10K-input test.",
+    "speed_claim": "TTFT 0.23s, 266 tok/s",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Lowest first-chunk latency on the AA provider board",
+      "Proof GPU serving can win on TTFT while losing on throughput"
+    ]
+  },
+  {
+    "name": "Cerebras",
+    "vendor": "Cerebras",
+    "url": "https://www.cerebras.ai/press-release/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud-deployment",
+    "description": "Wafer-scale-engine inference: GPT-OSS 120B at 1,697 tok/s (AA) / ~3,000 vendor; Qwen 3.8 27B ~1,500 tok/s.",
+    "speed_claim": "1,697 tok/s (AA), ~3,000 (vendor)",
+    "speed_verified": true,
+    "speed_url": "https://www.cerebras.ai/press-release/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud-deployment",
+    "measured_date": "2026-09-28",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Wafer-Scale Engine: 4T transistors, 21 PB/s on-chip bandwidth",
+      "Kimi K2.6 (1T params) at 981 tok/s on AA (May 2026), 6.7x fastest GPU cloud",
+      "OpenAI-compatible endpoint (https://api.cerebras.ai/v1)",
+      "Disaggregated GPU/WSE inference"
+    ]
+  },
+  {
+    "name": "Groq",
+    "vendor": "Groq",
+    "url": "https://groq.com",
+    "description": "SRAM-based LPU inference cloud built for deterministic, ultra-low-latency token generation.",
+    "speed_claim": "957 tok/s gpt-oss-20b (AA); 3,431 tok/s Gemma 4 31B on Groq 3 LPX (NVIDIA-run)",
+    "speed_verified": true,
+    "speed_url": "https://www.theregister.com/systems/2026/08/24/what-nvidias-first-groq-3-lpu-benchmarks-tell-us-about-its-20b-gamble/5291880",
+    "measured_date": "2026-08-24",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "LPU/LPX: SRAM-only dataflow, compiler-scheduled, no HBM",
+      "50 back-to-back requests at 100K context in NVIDIA Hot Chips test",
+      "Groq remained independent; GroqCloud operating as of 2026-09-10",
+      "Free tier, no card required"
+    ]
+  },
+  {
+    "name": "SambaNova",
+    "vendor": "SambaNova",
+    "url": "https://cloud.sambanova.ai",
+    "description": "RDU-based inference cloud targeting fast tok/s on large MoE models at full 16-bit precision.",
+    "speed_claim": "198 tok/s/user R1 671B (vendor); 706 tok/s gpt-oss-120b (AA)",
+    "speed_verified": true,
+    "speed_url": "https://sambanova.ai/press/fastest-deepseek-r1-671b-with-highest-efficiency",
+    "measured_date": "2026-08-30",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "SN40L/SN50 reconfigurable dataflow units; SRAM/HBM/DRAM hierarchy",
+      "MiniMax M2 up to 378 tok/s (AA, Feb 2026)",
+      "Llama 3 8B at 1,000 tok/s (AA)"
+    ]
+  },
+  {
+    "name": "Celeris",
+    "vendor": "Celeris",
+    "url": "https://celeris.ai/",
+    "description": "Diffusion-LM API generating tokens in parallel for best-in-class wall-clock answer time.",
+    "speed_claim": "2,157.9 tok/s, TTFT 0.64s (AA)",
+    "speed_verified": true,
+    "speed_url": "https://runtimewire.com/article/celeris-1-tops-ai-speed-ranking-diffusion-model",
+    "measured_date": "2026-08-04",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Vendor launch claim: 1,664 tok/s, median complete answer 158ms",
+      "Homepage later showed 2,038 tok/s (vendor-reported)",
+      "OpenAI compatibility: verify official docs"
+    ]
+  },
+  {
+    "name": "Inception",
+    "vendor": "Inception Labs",
+    "url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+    "description": "Diffusion-based chat models on commodity GPUs, optimized for high tok/s rather than TTFT.",
+    "speed_claim": "1,107 tok/s Mercury 2.5 (vendor); 770 tok/s, TTFT 3.07s Mercury 2 (AA)",
+    "speed_verified": true,
+    "speed_url": "https://www.inceptionlabs.ai/blog/introducing-mercury-2-5",
+    "measured_date": "2026-09-08",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Mercury 2.5 launched 2026-09-08",
+      "Diffusion-style parallel token refinement on standard GPUs",
+      "Listing: https://openrouter.ai/inception/mercury-2.5"
+    ]
+  },
+  {
+    "name": "Fireworks AI",
+    "vendor": "Fireworks",
+    "url": "https://fireworks.ai",
+    "description": "GPU inference platform with a heavily optimized stack (FireAttention, speculative decoding) and provisioned throughput tiers.",
+    "speed_claim": "501 tok/s Nemotron 3.5 Lightning, TTFT 0.46s (AA)",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Custom CUDA kernels, continuous batching, speculative decoding",
+      "Serverless + provisioned throughput",
+      ">13T tokens/day platform-wide (vendor-reported aggregate)",
+      "OpenAI-compatible"
+    ]
+  },
+  {
+    "name": "Together AI",
+    "vendor": "Together",
+    "url": "https://www.together.ai",
+    "description": "Open-model inference cloud with quantization + speculative-decoding speedups ('Turbo').",
+    "speed_claim": "500 tok/s DeepSeek-V3.1 on B200 (vendor); 245 tok/s Kimi K2.7 (AA)",
+    "speed_verified": true,
+    "speed_url": "https://venturebeat.com/ai/together-ais-atlas-adaptive-speculator-delivers-400-inference-speedup-by",
+    "measured_date": "2026-08-30",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Turbo suite: FP4 + static speculative decoding + adaptive ATLAS speculator",
+      "Claimed 400% cumulative speedup (80% FP4, 80-100% speculator)",
+      "OpenBenchmarks 2026-09-03: 151.6 tok/s median, 393ms TTFA",
+      "OpenAI-compatible"
+    ]
+  },
+  {
+    "name": "Baseten",
+    "vendor": "Baseten",
+    "url": "https://www.baseten.co/",
+    "description": "Inference infrastructure with the fastest measured TTFT on large reasoning models.",
+    "speed_claim": "TTFT 0.23s gpt-oss-120b (AA); 240.5 tok/s median (OpenBenchmarks)",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-09-03",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Modified vLLM, TensorRT-LLM, speculative decoding, custom kernels",
+      "Fastest first chunk in AA's 10K-input test (2026-08-30)",
+      "Customer case: modified vLLM + spec decoding halved custom-model latency"
+    ]
+  },
+  {
+    "name": "Nebius Token Factory",
+    "vendor": "Nebius",
+    "url": "https://tokenfactory.nebius.com",
+    "description": "GPU cloud + hosted inference with strong peak tok/s but notable failure rates in independent testing.",
+    "speed_claim": "269.3 tok/s median, 14.83% failures (OpenBenchmarks)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/openbenchmarks-labs/inference",
+    "measured_date": "2026-09-03",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Preoptimized open models on latest NVIDIA systems; KV-aware routing",
+      "Groq 3 LPX deployment planned by end of 2026 (~3,400 tok/s target, planned not live)",
+      "GLM-5.3-Flash 0.46s TTFT / 206 tok/s (AA)",
+      "OpenAI-compatible"
+    ]
+  },
+  {
+    "name": "DeepInfra",
+    "vendor": "DeepInfra",
+    "url": "https://deepinfra.com",
+    "description": "Multi-region inference provider expanding Blackwell capacity for low-latency serving.",
+    "speed_claim": "371 tok/s Nemotron 3 Ultra, TTFT 0.28s (AA)",
+    "speed_verified": true,
+    "speed_url": "https://www.marktechpost.com/2026/08/30/lowest-latency-inference-apis-for-voice-and-realtime-agents-a-time-to-first-token-ttft-first-benchmark/",
+    "measured_date": "2026-08-30",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Ninth facility 2026-07: 1,000+ Blackwell B300 GPUs in Toronto",
+      "OpenBenchmarks 2026-09-03: 69.4 tok/s median",
+      "OpenAI-compatible"
+    ]
+  },
+  {
+    "name": "Modal",
+    "vendor": "Modal",
+    "url": "https://modal.com/",
+    "description": "Serverless GPU platform notable for fast allocation and strong warm-instance streaming speed.",
+    "speed_claim": "222.2 tok/s median, 470ms TTFA (OpenBenchmarks)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/openbenchmarks-labs/inference",
+    "measured_date": "2026-09-03",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "1.8s median A100 cold start (independent 2026-09)",
+      "vLLM startup cut from ~118s to ~12s in a 2026 vendor case",
+      "99.33% task success in OpenBenchmarks run"
+    ]
+  },
+  {
+    "name": "Novita AI",
+    "vendor": "Novita",
+    "url": "https://novita.ai",
+    "description": "Budget-friendly multi-model inference API with modest measured speed.",
+    "speed_claim": "60.6 tok/s median, 1.4s TTFA (OpenBenchmarks)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/openbenchmarks-labs/inference",
+    "measured_date": "2026-09-03",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Weak own-venue speed story; rely on independent measurements",
+      "OpenAI-compatible (https://api.novita.ai/openai)"
+    ]
+  },
+  {
+    "name": "Parasail",
+    "vendor": "Parasail",
+    "url": "https://parasail.io/",
+    "description": "Heterogeneous inference cloud routing decode to d-Matrix in-memory-compute accelerators.",
+    "speed_claim": "52.4 tok/s median (OpenBenchmarks); d-Matrix claims up to 10x interactive",
+    "speed_verified": true,
+    "speed_url": "https://github.com/openbenchmarks-labs/inference",
+    "measured_date": "2026-09-03",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "NVIDIA prefill + d-Matrix Corsair DIMC decode",
+      "Fleet: 40+ datacenters, 15 countries",
+      "d-Matrix 10x claim is vendor-reported with thin baseline - label carefully"
+    ]
+  },
+  {
+    "name": "Telnyx",
+    "vendor": "Telnyx",
+    "url": "https://telnyx.com/resources/glm-5-3-latency-benchmarks-provider",
+    "description": "Voice/telco-backed inference API with strong independently measured streaming speed.",
+    "speed_claim": "184.3 tok/s median, 573.5ms TTFA (OpenBenchmarks)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/openbenchmarks-labs/inference",
+    "measured_date": "2026-09-03",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Own low-latency network + GPU inference",
+      "Vendor-run 6-workload comparison: lowest median E2E in 5/6 vs Baseten/Together/Fireworks",
+      "99.5% task success in OpenBenchmarks run"
+    ]
+  },
+  {
+    "name": "Chutes",
+    "vendor": "Chutes",
+    "url": "https://chutes.ai/",
+    "description": "Decentralized inference network where miners compete on capacity, speed, and availability.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "34T+ cumulative tokens, daily peaks >120B (aggregate volume, not per-session speed)",
+      "Speed-based miner competition",
+      "Needs an endpoint speed benchmark before strong inclusion"
+    ]
+  },
+  {
+    "name": "Hyperbolic",
+    "vendor": "Hyperbolic",
+    "url": "https://hyperbolic.xyz/",
+    "description": "GPU marketplace + inference API with context-extension speed claims.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "LLoCO claim: up to 7.62x faster 128K-token inference on H100 (vendor, baseline unverified)",
+      "FP8 on H100/H200; OpenAI-compatible"
+    ]
+  },
+  {
+    "name": "Z.AI",
+    "vendor": "Z.AI",
+    "url": "https://docs.z.ai",
+    "description": "Zhipu's model platform with dedicated 'HighSpeed' model variants (FlashX, AirX Ultra-Fast).",
+    "speed_claim": "200 tok/s GLM-5.3-FlashX (vendor); 56.3 tok/s median (OpenBenchmarks)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/openbenchmarks-labs/inference",
+    "measured_date": "2026-09-03",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "GLM-Z1-AirX 'Ultra-Fast': up to 200 tok/s, claimed 8x standard (vendor, 2025-04)",
+      "TileRT reported deployed at Z.AI for GLM 5.1 HighSpeed"
+    ]
+  },
+  {
+    "name": "Mistral La Plateforme",
+    "vendor": "Mistral AI",
+    "url": "https://docs.mistral.ai",
+    "description": "Frontier lab API with a fast-model lineup but no current first-party speed-tier claim located.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Cerebras-hosted Mistral Large hit >1,100 tok/s - listed under Cerebras",
+      "Third-party ~320 tok/s claim insufficiently controlled - unverified"
+    ]
+  },
+  {
+    "name": "xAI API",
+    "vendor": "xAI",
+    "url": "https://docs.x.ai",
+    "description": "Frontier lab API with fast-variant models but no published speed SLA located.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Explicitly named 'Fast' model variants + priority service",
+      "Third-party: Grok Code Fast 1 ~190 tok/s (unverified method)"
+    ]
+  },
+  {
+    "name": "NVIDIA NIM",
+    "vendor": "NVIDIA",
+    "url": "https://www.nvidia.com/en-in/ai-data-science/products/nim-microservices/",
+    "description": "NVIDIA's hosted optimized inference endpoints (TensorRT-LLM stack) with published throughput benchmarks.",
+    "speed_claim": "1,997 tok/s Nemotron 3 Ultra on 4x B200, 2.5x via NIM stack (vendor)",
+    "speed_verified": true,
+    "speed_url": "https://cryptospiel.com/nvidia-nim-boosts-nemotron-3-ultra-throughput-by-2-5x/",
+    "measured_date": "2026-09-10",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "FP8, continuous batching, speculative decoding, KV compression",
+      "Llama 3.1 8B on 1x H100: 1,201 tok/s, ITL 32ms (vendor)",
+      "Hosted endpoint: https://integrate.api.nvidia.com/v1; OpenAI-compatible",
+      "Free-tier reliability caveat: 1-46s probe swings, 429s (independent, 2026-09)"
+    ]
+  },
+  {
+    "name": "AWS Bedrock",
+    "vendor": "AWS",
+    "url": "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-bedrock-priority-flex-inference-service-tiers/",
+    "description": "Managed model API with an explicit low-latency Priority tier and dedicated-capacity options.",
+    "speed_claim": "25% better OTPS latency vs Standard (vendor)",
+    "speed_verified": true,
+    "speed_url": "https://aws.amazon.com/about-aws/whats-new/2025/11/amazon-bedrock-priority-flex-inference-service-tiers/",
+    "measured_date": "2025-11",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Priority tier: prioritized ahead of Standard/Flex",
+      "Provisioned Throughput / Reserved tiers for predictable sub-second latency",
+      "Bedrock Converse API (not OpenAI-compatible natively)"
+    ]
+  },
+  {
+    "name": "Alibaba Model Studio",
+    "vendor": "Alibaba",
+    "url": "https://help.aliyun.com/zh/model-studio/model-list",
+    "description": "Alibaba's model API with a speed-first 'Flash' model tier and real-time latency targets.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Qwen3.8-Flash-Next: Gated DeltaNet + dynamic sparse attention (vendor)",
+      "Qwen3.8-LiveTranslate: 2.8s -> 2.3s LAAL translation lag (vendor, translation latency not tok/s)",
+      "No hosted tok/s figure verified"
+    ]
+  },
+  {
+    "name": "Hugging Face Inference Providers",
+    "vendor": "Hugging Face",
+    "url": "https://huggingface.co/docs/inference-providers/en/index",
+    "description": "Unified chat API routing across partner providers with a fastest-provider default policy.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "router.huggingface.co auto-selects fastest available provider (':fastest' policy)",
+      "/v1/models exposes per-provider latency/throughput when available",
+      "OpenAI SDK compatible per official docs"
+    ]
+  },
+  {
+    "name": "OpenRouter",
+    "vendor": "OpenRouter",
+    "url": "https://openrouter.ai",
+    "description": "Multi-provider routing API; speed story depends on routing policies and provider mix.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Provider failover and routing; rolling per-provider throughput/TTFT/uptime stats",
+      "No published aggregate speed figure located"
+    ]
+  },
+  {
+    "name": "Cloudflare Workers AI",
+    "vendor": "Cloudflare",
+    "url": "https://www.cloudflare.com/products/workers-ai/",
+    "description": "Edge-network GPU inference with vendor-claimed multi-x speedups on fast model variants.",
+    "speed_claim": "2-4x inference speedup Llama 3.3 70B FP8 Fast (vendor)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/kennyj42/cloudflare-docs/blob/HEAD/src/content/changelog/workers-ai/2025-04-11-new-models-faster-inference.mdx",
+    "measured_date": "2025-04-11",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "Speculative decoding, prefix caching, updated backend",
+      "BGE embeddings ~2x faster (vendor)",
+      "Requests route to nearest GPU-enabled location, not necessarily nearest city",
+      "OpenAI-compatible chat completions + embeddings"
+    ]
+  },
+  {
+    "name": "Gimlet Labs",
+    "vendor": "Gimlet Labs",
+    "url": "https://www.globenewswire.com/news-release/2026/09/28/3369931/0/en/gimlet-labs-adds-cerebras-to-deliver-ultrafast-ai-inference-through-gimlet-cloud.html",
+    "description": "New inference cloud (Pixie Labs founder): Cerebras WSE + GPUs, disaggregated per-phase routing.",
+    "speed_claim": "3,000 tok/s target at production scale (announced)",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "commercial",
+    "category": "provider",
+    "features": [
+      "Announced 2026-09-28; first Cerebras-powered datacenter expected later in 2026",
+      "Planned 100 MW Cerebras-powered capacity; CS-4 launch partner",
+      "Integrated solution already serving tokens in private deployments (vendor)"
+    ]
+  },
+  {
+    "name": "TileRT-powered endpoints",
+    "vendor": "TileRT / InferenceX",
+    "url": "https://newsletter.semianalysis.com/p/ultra-high-interactivity-on-nvidia",
+    "description": "The engine behind current 'HighSpeed'/'UltraSpeed' endpoints: statically compiles decode into one persistent GPU kernel.",
+    "speed_claim": "340-500 tok/s/user on 8x B200, ~3x conventional engines (SemiAnalysis)",
+    "speed_verified": true,
+    "speed_url": "https://newsletter.semianalysis.com/p/ultra-high-interactivity-on-nvidia",
+    "measured_date": "2026-08-10",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "provider",
+    "features": [
+      "GLM-5/5.1 FP8 744B: 340 tok/s/user at 8K/1K (prior best 181.4)",
+      "Production users: Xiaomi MiMo V2.5 Pro UltraSpeed, Z.AI GLM 5.1 HighSpeed",
+      "Engine-powered endpoints, not a standalone provider; single-source independent"
+    ]
+  },
+  {
+    "name": "Llama 3.2 1B / 3B",
+    "vendor": "Meta",
+    "url": "https://huggingface.co/meta-llama/Llama-3.2-1B-Instruct",
+    "description": "Tiny dense models; strong edge/on-device ecosystem for local speed.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "1B/3B dense instruction models",
+      "Llama 3.2 Community License",
+      "Broad llama.cpp/Ollama/MLX support for edge inference"
+    ]
+  },
+  {
+    "name": "Qwen3 0.6B / 1.7B / 4B",
+    "vendor": "Alibaba",
+    "url": "https://huggingface.co/Qwen/Qwen3-0.6B",
+    "description": "Small dense models with hybrid thinking/non-thinking modes.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0 weights",
+      "Sub-5B dense for high tok/s on modest GPUs"
+    ]
+  },
+  {
+    "name": "Qwen3-30B-A3B",
+    "vendor": "Alibaba",
+    "url": "https://huggingface.co/Qwen/Qwen3-30B-A3B",
+    "description": "Sparse MoE: 30B total, ~3B active per token.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0; technical report gives architecture, no portable tok/s figure",
+      "MoE sparsity = large-model quality at small-model speed"
+    ]
+  },
+  {
+    "name": "Gemma 3n E2B / E4B",
+    "vendor": "Google",
+    "url": "https://huggingface.co/google/gemma-3n-E2B-it",
+    "description": "MatFormer nested submodels (E2B/E4B effective sizes) for on-device speed/memory trade-off.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Gemma Terms of Use",
+      "Designed for mobile/edge inference"
+    ]
+  },
+  {
+    "name": "Phi-4 Mini Instruct",
+    "vendor": "Microsoft",
+    "url": "https://huggingface.co/microsoft/Phi-4-mini-instruct",
+    "description": "3.8B dense; INT4 ONNX path dramatically faster than PyTorch FP16 on RTX 4090.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "MIT license",
+      "Vendor: 260 tok/s ONNX INT4 vs 44 tok/s PyTorch FP16 on RTX 4090 (undated)",
+      "Quantization-friendly small dense"
+    ]
+  },
+  {
+    "name": "Ministral 3 3B / 8B",
+    "vendor": "Mistral AI",
+    "url": "https://huggingface.co/mistralai/Ministral-3-3B-Instruct-2512",
+    "description": "Small dense edge models; 385 tok/s on RTX 5090 per vendor (see API models).",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "MRL-0.1 Mistral Research License: research-only, commercial needs separate license",
+      "Edge-targeted dense small models"
+    ]
+  },
+  {
+    "name": "Mistral Small 4 119B",
+    "vendor": "Mistral AI",
+    "url": "https://huggingface.co/mistralai/Mistral-Small-4-119B-2603",
+    "description": "Sparse MoE: 119B total, 6.5B active (128 experts / 4 active); NVFP4 checkpoint.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0",
+      "256K context",
+      "Card states 'speed-optimized', no portable tok/s figure"
+    ]
+  },
+  {
+    "name": "DeepSeek-R1-Distill-Qwen 1.5B / 7B",
+    "vendor": "DeepSeek",
+    "url": "https://huggingface.co/deepseek-ai/DeepSeek-R1-Distill-Qwen-1.5B",
+    "description": "Small dense reasoning-distilled models for fast local reasoning.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "MIT license",
+      "Distilled from R1 into Qwen dense backbones"
+    ]
+  },
+  {
+    "name": "GPT-OSS-20B",
+    "vendor": "OpenAI",
+    "url": "https://huggingface.co/openai/gpt-oss-20b",
+    "description": "MoE: 21B total / 3.6B active; MXFP4 weights fit within 16GB VRAM.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0; released 2025-08",
+      "957 tok/s on Groq LPU (see API models)"
+    ]
+  },
+  {
+    "name": "Command A+ (open weights)",
+    "vendor": "Cohere",
+    "url": "https://huggingface.co/CohereLabs",
+    "description": "218B total / 25B active sparse MoE; W4A4 quantization -> 1x B200 or 2x H100.",
+    "speed_claim": "110% throughput, -30% latency vs Command A Reasoning",
+    "speed_verified": true,
+    "speed_url": "https://docs.cohere.com/changelog/command-a-plus-05-2026",
+    "measured_date": "2026-05-20",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0; released 2026-05-20",
+      "281 tok/s on Cohere API per AA (May 2026)",
+      "Quantization-aware distillation, near-lossless"
+    ]
+  },
+  {
+    "name": "Step-3.7-Flash",
+    "vendor": "StepFun",
+    "url": "https://huggingface.co/stepfun-ai/Step-3.7-Flash",
+    "description": "~198B total / ~11B active MoE; hybrid sliding/global attention; MTP-3.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0; released 2026-05",
+      "Vendor: up to 400 tok/s (hardware/config unspecified - not portable)",
+      "3 reasoning levels; 256K context"
+    ]
+  },
+  {
+    "name": "MiMo-V2.6-Flash-RL",
+    "vendor": "Xiaomi",
+    "url": "https://huggingface.co/XiaomiMiMo/MiMo-V2.6-Flash-RL",
+    "description": "309B total / 15B active sparse MoE; 1M context; 5-layer MTP speculative decoder.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "MIT license; released 2026-09-21",
+      "Independent (benthecarman, 2026-09-23, DGX Spark GB10): DFlash spec decoding 1.58x coding, 1.70x reasoning, up to 2.08x at 250K ctx",
+      "256 routed experts / 8 active"
+    ]
+  },
+  {
+    "name": "Kimi Linear 48B-A3B",
+    "vendor": "Moonshot AI",
+    "url": "https://huggingface.co/moonshotai/Kimi-Linear-48B-A3B-Instruct",
+    "description": "48B total / 3B active; Kimi Delta Attention + MLA; 256 experts / top-8.",
+    "speed_claim": "2.8x decode throughput (paper)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2510.23556",
+    "measured_date": "2025-10",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "MIT (model-card metadata)",
+      "Workload/hardware context incomplete - directional"
+    ]
+  },
+  {
+    "name": "Granite 4.0 Nano 350M / 1B",
+    "vendor": "IBM",
+    "url": "https://huggingface.co/ibm-granite/granite-4.0-nano",
+    "description": "Sub-billion dense models for extreme edge/local speed.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0",
+      "Smallest Granite 4.0 tier"
+    ]
+  },
+  {
+    "name": "Granite 4.0 H Tiny",
+    "vendor": "IBM",
+    "url": "https://huggingface.co/ibm-granite/granite-4.0-h-tiny",
+    "description": "Hybrid Mamba-2 + Transformer MoE: 7B total / 1B active; 128K context.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0; released 2025-10-02",
+      "4 attention + 36 Mamba-2 layers; 64 experts / 6 active",
+      "Vendor (via community MLX card): ~2x faster inference vs comparable dense - treat as unverified"
+    ]
+  },
+  {
+    "name": "Nemotron 3.5 Lightning 30B-A3B",
+    "vendor": "NVIDIA",
+    "url": "https://huggingface.co/nvidia/NVIDIA-Nemotron-3.5-Lightning-30B-A3B-BF16",
+    "description": "Hybrid Mamba-2 + MoE + attention: 30B total / 3B active; built-in MTP.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "OpenMDW-1.1 license (NOT Apache); released 2026-08-11",
+      "Vendor: up to 4x faster output vs similar-sized models",
+      "Independent (aj9o9, Aug 2026): ~61-75 tok/s decode, Q6_K llama.cpp on RTX 3090 24GB",
+      "DFlash/DSpark draft models included"
+    ]
+  },
+  {
+    "name": "Nemotron 3 Nano Omni 30B-A3B",
+    "vendor": "NVIDIA",
+    "url": "https://huggingface.co/nvidia/Nemotron-3-Nano-Omni-30B-A3B-Reasoning-BF16",
+    "description": "30B-A3B hybrid Mamba-2/Transformer MoE; omni text+image+video+audio; 262K ctx.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "NVIDIA Nemotron Open Model License",
+      "Independent (gisenberg/local-model-eval, ~Aug 2026): 287 tok/s FP8 + thinking, vLLM on RTX PRO 6000, ~1.5x BF16"
+    ]
+  },
+  {
+    "name": "SmolLM2 135M / 360M / 1.7B",
+    "vendor": "Hugging Face",
+    "url": "https://huggingface.co/HuggingFaceTB/SmolLM2-1.7B-Instruct",
+    "description": "Ultra-small dense models; the floor of the speed/quality trade-off.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "model",
+    "features": [
+      "Apache-2.0; released Nov 2024",
+      "On-device inference at tens of tok/s on phones"
+    ]
+  },
+  {
+    "name": "vLLM",
+    "vendor": "vLLM Project",
+    "url": "https://github.com/vllm-project/vllm",
+    "description": "High-throughput engine (PagedAttention + continuous batching); the de-facto baseline.",
+    "speed_claim": "24x throughput vs HF Transformers (SOSP 2023)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2309.06180",
+    "measured_date": "2023-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "PagedAttention: non-contiguous KV blocks, near-zero fragmentation",
+      "Continuous batching, prefix caching, speculative decoding",
+      "GPTQ/AWQ/FP8/Marlin quantization; tensor/data/expert parallelism",
+      "Apache-2.0; OpenAI-compatible server"
+    ]
+  },
+  {
+    "name": "SGLang",
+    "vendor": "SGLang Project",
+    "url": "https://github.com/sgl-project/sglang",
+    "description": "RadixAttention prefix caching; structured outputs; disaggregated prefill (3.8x/4.8x gains).",
+    "speed_claim": "5x throughput vs Guidance/vLLM on agent workloads (Jan 2024)",
+    "speed_verified": true,
+    "speed_url": "https://lmsys.org/blog/2024-01-17-sglang/",
+    "measured_date": "2024-01",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "RadixAttention: radix-tree prefix cache shared across requests",
+      "Chunked prefill, speculative decoding (EAGLE), paged attention",
+      "Prefill/decode disaggregation; day-0 open-model support",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "TensorRT-LLM",
+    "vendor": "NVIDIA",
+    "url": "https://github.com/NVIDIA/TensorRT-LLM",
+    "description": "NVIDIA's max-perf library: compiled kernels, FP8/INT4/FP4 on Hopper, in-flight batching.",
+    "speed_claim": "8x performance on H100 vs A100 (Oct 2023)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/NVIDIA/TensorRT-LLM",
+    "measured_date": "2023-10",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "XQA kernels; CUDA graphs; tensor/pipeline/expert parallelism",
+      "Paged KV cache, speculative decoding",
+      "Independent (~Sep 2026): up to 70% faster than llama.cpp on RTX 4090/3090",
+      "Apache-2.0; engine under Baseten's pre-optimized Model APIs"
+    ]
+  },
+  {
+    "name": "Hugging Face TGI",
+    "vendor": "Hugging Face",
+    "url": "https://github.com/huggingface/text-generation-inference",
+    "description": "HF's production serving toolkit - archived upstream, maintenance mode since Dec 2025.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "archived",
+    "category": "engine",
+    "features": [
+      "Continuous batching, tensor parallelism, Flash Attention, quantization, streaming",
+      "Still a proven baseline; prefer vLLM/SGLang for new deployments",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "Ollama",
+    "vendor": "Ollama",
+    "url": "https://github.com/ollama/ollama",
+    "description": "Dead-simple local runtime: pull, quantize, and serve hundreds of pre-quantized models locally.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "GGUF model management, quantization, GPU offload",
+      "Local OpenAI-compatible API; zero marginal cost",
+      "MIT license"
+    ]
+  },
+  {
+    "name": "llama.cpp",
+    "vendor": "ggml-org",
+    "url": "https://github.com/ggml-org/llama.cpp",
+    "description": "Pure C/C++ inference + the GGUF format standard; the reference baseline others measure against.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "K-quants + imatrix 2-8-bit; built-in llama-server",
+      "CUDA/Metal/ROCm/Vulkan backends; Flash Attention",
+      "Best speed story on non-NVIDIA hardware (laptops, Apple Silicon, edge)",
+      "MIT license; repo moved from ggerganov/llama.cpp to ggml-org in 2025"
+    ]
+  },
+  {
+    "name": "LMDeploy",
+    "vendor": "InternLM",
+    "url": "https://github.com/InternLM/lmdeploy",
+    "description": "InternLM team's compress/deploy/serve toolkit with the TurboMind backend.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Persistent/continuous batching, blocked KV cache, dynamic split-and-fuse",
+      "W8A8/W4A16 + KV-cache quantization + prefix caching",
+      "Project claims up to 1.8x vLLM request throughput (benchmark date/hw not recovered - not portable)",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "Aphrodite Engine",
+    "vendor": "Aphrodite",
+    "url": "https://github.com/aphrodite-engine/aphrodite-engine",
+    "description": "vLLM-derived serving with broad quantization and advanced samplers.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "EXL2/GGUF/GPTQ/AWQ/FP8/Marlin quantization",
+      "Paged KV cache",
+      "AGPL-3.0 license (not Apache)"
+    ]
+  },
+  {
+    "name": "MLC-LLM",
+    "vendor": "MLC AI",
+    "url": "https://github.com/mlc-ai/mlc-llm",
+    "description": "TVM/TensorIR-compiled LLM deployment: graph/kernel fusion and target-specific execution.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Memory planning, quantization; CUDA/Metal/ROCm/Vulkan/OpenCL/WebGPU targets",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "ExLlamaV2",
+    "vendor": "turboderp",
+    "url": "https://github.com/turboderp-org/exllamav2",
+    "description": "EXL2 mixed-bit 2-8 bpw quantization with custom CUDA kernels and paged attention.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Dynamic batching",
+      "MIT license",
+      "'~2x llama.cpp' evidence is secondary and lacks hw/workload context"
+    ]
+  },
+  {
+    "name": "PowerInfer",
+    "vendor": "SJTU IPADS",
+    "url": "https://github.com/SJTU-IPADS/PowerInfer",
+    "description": "Activation-locality-aware hot/cold neuron placement: GPU hot, CPU cold.",
+    "speed_claim": "13.2 tok/s quantized on RTX 4090; 8.00x/11.69x vs llama.cpp (SOSP 2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2312.12456",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Neuron-aware sparse operators",
+      "MIT license",
+      "Authors' active fork: Tiiny-AI/PowerInfer"
+    ]
+  },
+  {
+    "name": "DeepSpeed-FastGen / MII",
+    "vendor": "DeepSpeedAI",
+    "url": "https://github.com/deepspeedai/DeepSpeed",
+    "description": "Dynamic SplitFuse + continuous batching + non-contiguous KV caches + DeepSpeed-Inference kernels.",
+    "speed_claim": "2.3x higher effective throughput vs vLLM (Jan 2024)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/deepspeedai/DeepSpeed",
+    "measured_date": "2024-01",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Llama-2 70B on 4x A100 80GB: 1.36 vs 0.67 req/s at 9s latency",
+      "~50% lower latency at matching throughput",
+      "Apache-2.0; MII: https://github.com/deepspeedai/DeepSpeed-MII"
+    ]
+  },
+  {
+    "name": "NVIDIA Dynamo",
+    "vendor": "NVIDIA",
+    "url": "https://github.com/ai-dynamo/dynamo",
+    "description": "Prefill/decode disaggregation, KV-aware routing, NIXL KV transfers, tiered KV cache.",
+    "speed_claim": "3x TTFT, 2x avg-latency improvement via KV-aware routing (design docs)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/ai-dynamo/dynamo",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Measured on 100k R1 queries, R1-Distill-Llama-70B FP8, 2x H100, 4K ISL/800 OSL",
+      "SLA-aware GPU planning",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "llm-d",
+    "vendor": "llm-d",
+    "url": "https://github.com/llm-d/llm-d",
+    "description": "Kubernetes distributed inference: disaggregation, intelligent routing, prefix-cache offload.",
+    "speed_claim": "2.2k output tok/s/GPU on H200, 2.9k on B200 (v0.3, Oct 2025)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/llm-d/llm-d",
+    "measured_date": "2025-10",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "DeepSeek expert-parallel serving",
+      "v0.4 (Dec 2025): 40% lower per-output-token latency for DeepSeek V3.1 on H200",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "vLLM Production Stack",
+    "vendor": "vLLM Project",
+    "url": "https://github.com/vllm-project/production-stack",
+    "description": "Kubernetes service discovery, routing, observability, and fault tolerance for vLLM.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Model aliases",
+      "Apache-2.0 (verify at repo)"
+    ]
+  },
+  {
+    "name": "Triton Inference Server",
+    "vendor": "NVIDIA",
+    "url": "https://github.com/triton-inference-server/server",
+    "description": "Dynamic batching and model ensembles; LLM serving via vLLM/TensorRT-LLM backends.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Do not attribute TensorRT-LLM figures to Triton itself - gains come from backends",
+      "BSD-3-Clause license"
+    ]
+  },
+  {
+    "name": "AIBrix",
+    "vendor": "vLLM Project",
+    "url": "https://github.com/vllm-project/aibrix",
+    "description": "LLM-aware routing (KV occupancy/queue depth/prefix hits) and inference-shaped autoscaling.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Distributed KV reuse, P/D disaggregation",
+      "Apache-2.0 (verify at repo)"
+    ]
+  },
+  {
+    "name": "KTransformers",
+    "vendor": "kvcache-ai",
+    "url": "https://github.com/kvcache-ai/ktransformers",
+    "description": "CPU/GPU heterogeneous MoE execution with CPU expert offload (AMX/AVX-512 INT4/INT8).",
+    "speed_claim": "4.62-19.74x prefill, 1.25-4.09x decode (SOSP 2025)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/kvcache-ai/ktransformers",
+    "measured_date": "2025",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "GPU attention/KV cache; hot-expert placement",
+      "Hardware/workload details surfaced secondarily - confirm from paper before porting",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "OpenVINO GenAI",
+    "vendor": "Intel",
+    "url": "https://github.com/openvinotoolkit/openvino.genai",
+    "description": "Speculative decoding, continuous batching, prefix caching, KV eviction for Intel CPU/GPU/NPU.",
+    "speed_claim": "2.1x speedup with DFlash speculative decoding, Qwen3-4B INT4 (2026 PR)",
+    "speed_verified": true,
+    "speed_url": "https://github.com/openvinotoolkit/openvino.genai",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Hardware not in surfaced excerpt - caveat",
+      "Sparse attention support",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "Ray Serve LLM",
+    "vendor": "Ray",
+    "url": "https://github.com/ray-project/ray",
+    "description": "vLLM-backed serving with actor autoscaling and multi-model orchestration.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "engine",
+    "features": [
+      "Tensor/pipeline parallel deployment",
+      "Apache-2.0"
+    ]
+  },
+  {
+    "name": "Speculative decoding",
+    "vendor": "Google Research",
+    "url": "https://arxiv.org/abs/2211.17192",
+    "description": "Small draft model proposes tokens; the target verifies them in parallel. Output distribution identical to autoregressive decoding.",
+    "speed_claim": "2-3x on T5-XXL (2022)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2211.17192",
+    "measured_date": "2022",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Zero quality change by construction",
+      "Supported by vLLM, SGLang, TensorRT-LLM, and hosted providers"
+    ]
+  },
+  {
+    "name": "EAGLE / EAGLE-2 / EAGLE-3",
+    "vendor": "SafeAILab",
+    "url": "https://github.com/SafeAILab/EAGLE",
+    "description": "Feature-level autoregressive drafters conditioned on target hidden features; EAGLE-3 moves to direct token prediction.",
+    "speed_claim": "EAGLE 1.27-3.07x; EAGLE-2 3.05-4.26x; EAGLE-3 up to 6.5x (2024-2025)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2503.01840",
+    "measured_date": "2025",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "EAGLE-2 adds confidence-driven draft trees",
+      "Current state of the art in draft heads",
+      "Supported in SGLang and vLLM"
+    ]
+  },
+  {
+    "name": "Medusa / Hydra / Hydra++",
+    "vendor": "FasterDecoding",
+    "url": "https://github.com/FasterDecoding/Medusa",
+    "description": "Extra prediction heads on the target model generate a candidate token tree verified in parallel.",
+    "speed_claim": "Medusa-2 up to ~3.6x; Hydra++ 2.70x vs autoregressive (2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2401.10774",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Hydra heads condition on prior candidates",
+      "Popularized speculative decoding before EAGLE"
+    ]
+  },
+  {
+    "name": "REST",
+    "vendor": "FasterDecoding",
+    "url": "https://github.com/FasterDecoding/REST",
+    "description": "Retrieval-based speculation: retrieves likely continuation n-grams from a datastore, no neural draft model.",
+    "speed_claim": "1.62-2.36x on single-batch 7B/13B (NAACL 2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/pdf/2311.08252",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Skips training a draft model entirely"
+    ]
+  },
+  {
+    "name": "Lookahead Decoding",
+    "vendor": "hao-ai-lab",
+    "url": "https://github.com/hao-ai-lab/LookaheadDecoding",
+    "description": "Drafter-free parallel decoding: Jacobi iteration over future tokens plus an n-gram pool for verification.",
+    "speed_claim": "1.6-2.1x on Vicuna-7B/13B (2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2402.02057",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "No auxiliary model or training required"
+    ]
+  },
+  {
+    "name": "Multi-token prediction (MTP)",
+    "vendor": "DeepSeek",
+    "url": "https://arxiv.org/abs/2412.19437v2",
+    "description": "Auxiliary modules jointly trained with the target predict extra future tokens; doubles as an integrated speculative drafter.",
+    "speed_claim": "85-90% second-token acceptance -> 1.8x tokens/s (2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2412.19437v2",
+    "measured_date": "2024",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Used in DeepSeek-V3; built into Nemotron 3.5 Lightning and MiMo-V2.6"
+    ]
+  },
+  {
+    "name": "PagedAttention",
+    "vendor": "vLLM Project",
+    "url": "https://arxiv.org/abs/2309.06180",
+    "description": "Pages the KV cache into non-contiguous fixed-size blocks, cutting fragmentation and enabling much larger batches.",
+    "speed_claim": "2-4x throughput over FasterTransformer/Orca at comparable latency (SOSP 2023)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2309.06180",
+    "measured_date": "2023",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Virtual-memory-style KV-cache management",
+      "The enabler of efficient continuous batching"
+    ]
+  },
+  {
+    "name": "Continuous / in-flight batching",
+    "vendor": "Anyscale",
+    "url": "https://www.anyscale.com/blog/continuous-batching-llm-inference",
+    "description": "Admits/removes requests at decode-step granularity instead of waiting for whole static batches.",
+    "speed_claim": "Up to 23x over naive static batching (2023)",
+    "speed_verified": true,
+    "speed_url": "https://www.anyscale.com/blog/continuous-batching-llm-inference",
+    "measured_date": "2023",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Replaced static batching everywhere; verify it is actually on",
+      "Measured with vLLM by Anyscale"
+    ]
+  },
+  {
+    "name": "Disaggregated prefill/decode (Mooncake)",
+    "vendor": "Moonshot AI",
+    "url": "https://github.com/kvcache-ai/Mooncake",
+    "description": "Splits compute-heavy prefill and bandwidth-heavy decode into separate pools; KV cache reused via distributed storage.",
+    "speed_claim": "525% throughput in simulations; 75% more production requests for Kimi (2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/pdf/2407.00079",
+    "measured_date": "2024",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Peer-reviewed FAST 2025",
+      "SGLang's specialty; also in vLLM Production Stack / llm-d"
+    ]
+  },
+  {
+    "name": "RadixAttention / automatic prefix caching",
+    "vendor": "SGLang Project",
+    "url": "https://arxiv.org/html/2312.07104v2",
+    "description": "Organizes cached KV prefixes in a radix tree for cross-request reuse with cache-aware scheduling.",
+    "speed_claim": "6.4x throughput, 3.7x lower latency (2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/html/2312.07104v2",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Shares KV-cache across requests with common prefixes",
+      "Cuts TTFT for agentic loops with long system prompts"
+    ]
+  },
+  {
+    "name": "Prompt caching (API-level)",
+    "vendor": "Anthropic",
+    "url": "https://claude.com/blog/prompt-caching",
+    "description": "Inference APIs persist processed static prompt prefixes across calls, skipping repeated prefill.",
+    "speed_claim": "Up to 85% lower latency on long prompts; 100K-token book 11.5s->2.4s (2024)",
+    "speed_verified": true,
+    "speed_url": "https://claude.com/blog/prompt-caching",
+    "measured_date": "2024",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Explicit or implicit depending on vendor",
+      "The TTFT lever for agentic loops"
+    ]
+  },
+  {
+    "name": "FlashAttention v1/v2/v3",
+    "vendor": "Dao-AILab",
+    "url": "https://github.com/Dao-AILab/flash-attention",
+    "description": "Exact tiled attention that never materializes the NxN matrix in HBM; FA3 adds Hopper asynchrony and FP8.",
+    "speed_claim": "FA3 1.5-2.0x over FA2 on H100 FP16, ~1.2 PFLOP/s FP8 (2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/pdf/2407.08608",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "FA1: 2.4x BERT / 3x GPT-2 attention on A100 (2022)",
+      "Table stakes in every modern engine"
+    ]
+  },
+  {
+    "name": "Grouped-Query Attention (GQA)",
+    "vendor": "Google",
+    "url": "https://arxiv.org/abs/2305.13245",
+    "description": "Groups query heads around fewer shared K/V heads: shrinks KV bandwidth/cache while keeping more capacity than MQA.",
+    "speed_claim": "T5-XXL: GQA-8 0.28s/sample vs MHA 1.51s/sample at near-MHA quality (2023)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2305.13245",
+    "measured_date": "2023",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Standard in Llama 3, Qwen, Mistral families"
+    ]
+  },
+  {
+    "name": "Multi-Head Latent Attention (MLA)",
+    "vendor": "DeepSeek",
+    "url": "https://arxiv.org/pdf/2405.04434",
+    "description": "Caches a low-rank shared KV latent instead of full per-head K/V tensors.",
+    "speed_claim": "93.3% smaller KV cache; 5.76x generation throughput (combined with MoE - do not attribute fully to MLA)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/pdf/2405.04434",
+    "measured_date": "2024",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "DeepSeek-V2/V3/V4 lineage",
+      "Trades compute for memory - great for long-context throughput"
+    ]
+  },
+  {
+    "name": "Sliding-window attention / rolling KV cache",
+    "vendor": "Mistral AI",
+    "url": "https://ar5iv.labs.arxiv.org/html/2310.06825",
+    "description": "Attends only to a fixed recent window; old KV entries overwritten in a ring buffer (Mistral 7B).",
+    "speed_claim": "2x attention speed at 16K; 8x less cache at 32K with W=4096 (2023)",
+    "speed_verified": true,
+    "speed_url": "https://ar5iv.labs.arxiv.org/html/2310.06825",
+    "measured_date": "2023",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Bounds KV-cache growth for long contexts"
+    ]
+  },
+  {
+    "name": "GPTQ",
+    "vendor": "IST-DASLab",
+    "url": "https://github.com/IST-DASLab/gptq",
+    "description": "Layer-wise one-shot post-training quantization using approximate second-order information; 175B models fit on one GPU.",
+    "speed_claim": "3.25x on A100 / 4.5x on A6000 vs FP16 end-to-end (2022)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2210.17323",
+    "measured_date": "2022",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Weight-only 3/4-bit PTQ",
+      "The classic LLM quantization baseline"
+    ]
+  },
+  {
+    "name": "AWQ",
+    "vendor": "MIT HAN Lab",
+    "url": "https://github.com/mit-han-lab/llm-awq",
+    "description": "Protects ~1% of salient weight channels (found via activation statistics) with per-channel scaling - no backprop.",
+    "speed_claim": "TinyChat runtime >3x over HF FP16 on desktop/mobile GPUs (2023)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2306.00978",
+    "measured_date": "2023",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Activation-aware weight quantization"
+    ]
+  },
+  {
+    "name": "Marlin",
+    "vendor": "IST-DASLab",
+    "url": "https://github.com/IST-DASLab/marlin",
+    "description": "Mixed-precision auto-regressive GEMM kernel: async weight streaming, L2 eviction hints, offline weight reshuffling.",
+    "speed_claim": "Near-ideal ~4x vs FP16 at batch sizes up to 16-32",
+    "speed_verified": true,
+    "speed_url": "https://github.com/IST-DASLab/marlin",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "The fast INT4 path in vLLM"
+    ]
+  },
+  {
+    "name": "GGUF K-quants (llama.cpp)",
+    "vendor": "ggml-org",
+    "url": "https://github.com/ggml-org/llama.cpp",
+    "description": "CPU-first C/C++ runtime with blockwise K-quant families (Q4_K_M etc.) for local inference.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Enables 7B-70B inference at tens of tok/s on consumer/edge hardware",
+      "No universal per-token multiplier from primary sources - generic 'quantization speed' claims unverified"
+    ]
+  },
+  {
+    "name": "SmoothQuant",
+    "vendor": "MIT HAN Lab",
+    "url": "https://github.com/mit-han-lab/smoothquant",
+    "description": "Migrates activation-outlier difficulty into weights via per-channel smoothing, unlocking INT8xINT8.",
+    "speed_claim": "1.56x speedup, 2x memory reduction, negligible accuracy loss (2022/2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2211.10438v2",
+    "measured_date": "2022",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "W8A8 INT8 inference"
+    ]
+  },
+  {
+    "name": "SqueezeLLM",
+    "vendor": "SqueezeAI Lab",
+    "url": "https://arxiv.org/pdf/2306.07629.pdf",
+    "description": "Non-uniform 3/4-bit quantization by weight sensitivity plus sparse full-precision outlier storage.",
+    "speed_claim": "2.4x lower latency vs FP16 on A6000 (2023)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/pdf/2306.07629.pdf",
+    "measured_date": "2023",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Sensitivity-based non-uniform quantization"
+    ]
+  },
+  {
+    "name": "KV-cache quantization (KIVI, KVQuant)",
+    "vendor": "UIUC/SqueezeAI",
+    "url": "https://github.com/jy-yuan/KIVI",
+    "description": "Low-bit KV caches: KIVI asymmetric 2-bit; KVQuant non-uniform formats with outlier handling for very long contexts.",
+    "speed_claim": "KIVI: 2.35-3.47x throughput, 4x larger batches (ICML 2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/pdf/2402.02750v1",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "KVQuant: 1M context on a single A100 (throughput multiplier unverified)",
+      "Bigger batches = higher throughput"
+    ]
+  },
+  {
+    "name": "KV-cache eviction (H2O, StreamingLLM)",
+    "vendor": "MIT HAN Lab",
+    "url": "https://github.com/mit-han-lab/streaming-llm",
+    "description": "Fixed-memory generation: H2O keeps recent + 'heavy hitter' tokens; StreamingLLM keeps attention sinks + rolling window.",
+    "speed_claim": "StreamingLLM: 22.2x per-token speed over sliding-window recomputation (ICLR 2024)",
+    "speed_verified": true,
+    "speed_url": "https://arxiv.org/abs/2309.17453",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "H2O 'up to 29x throughput' unverified from a primary source"
+    ]
+  },
+  {
+    "name": "MoE sparsity (compute-side)",
+    "vendor": "DeepSeek",
+    "url": "https://arxiv.org/pdf/2405.04434",
+    "description": "Routes each token through a small subset of experts (e.g. 236B total / 21B active in DeepSeek-V2).",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "technique",
+    "features": [
+      "Standalone MoE speed multiplier unverified - reported figures entangled with MLA/quantization",
+      "Fewer active params/token = higher tok/s at a given quality bar"
+    ]
+  },
+  {
+    "name": "Artificial Analysis - Models leaderboard",
+    "vendor": "Artificial Analysis",
+    "url": "https://artificialanalysis.ai/leaderboards/models",
+    "description": "Standardized model output speed (tok/s) alongside quality and cost across models.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "Live / continuously updated",
+      "The de-facto independent speed reference",
+      "Nearly every independent figure in this repo traces to it"
+    ]
+  },
+  {
+    "name": "Artificial Analysis - API providers analysis",
+    "vendor": "Artificial Analysis",
+    "url": "https://artificialanalysis.ai",
+    "description": "Per-provider TTFT and output tok/s, including same-model comparisons across endpoints.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "Live / continuous",
+      "Median output tok/s + TTFT per model per provider"
+    ]
+  },
+  {
+    "name": "OpenRouter performance statistics",
+    "vendor": "OpenRouter",
+    "url": "https://openrouter.ai/openai/gpt-6-sol-20260922",
+    "description": "Per-provider throughput (tok/s), TTFT/latency and uptime from production traffic.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "Rolling statistics (~30-min windows)",
+      "Independent aggregator"
+    ]
+  },
+  {
+    "name": "OpenBenchmarks Inference",
+    "vendor": "OpenBenchmarks",
+    "url": "https://openbenchmarks.com/inference",
+    "description": "Paired provider requests measuring E2E p50/p99, TTFT p50, p50 tok/s, 95%-floor speed, task success, failures.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "Snapshot cadence; 2026-09-03 run used 600 requests/provider on GLM 5.3 Flash",
+      "Repo: https://github.com/openbenchmarks-labs/inference",
+      "Open methodology"
+    ]
+  },
+  {
+    "name": "vLLM benchmark suite",
+    "vendor": "vLLM Project",
+    "url": "https://github.com/vllm-project/vllm",
+    "description": "bench serve/throughput/latency: request throughput, tok/s, TTFT, TPOT, inter-token latency p99.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "User-run harness, not a leaderboard",
+      "Docs: vllm-project/vllm docs/benchmarking/cli.md"
+    ]
+  },
+  {
+    "name": "GuideLLM",
+    "vendor": "vLLM Project",
+    "url": "https://github.com/vllm-project/guidellm",
+    "description": "Load sweeps on OpenAI-compatible endpoints: TTFT/ITL/tok/s and SLO/capacity analysis.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "Active OSS project",
+      "Tool, not a leaderboard"
+    ]
+  },
+  {
+    "name": "MLPerf Inference",
+    "vendor": "MLCommons",
+    "url": "https://mlcommons.org",
+    "description": "Standardized closed/open datacenter & edge submissions; LLM metrics in tok/s under latency/accuracy constraints.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "Versioned releases (v5.0: Apr 2025, 17,457 results from 23 organizations)",
+      "Independent consortium; analysis pages can be vendor-authored"
+    ]
+  },
+  {
+    "name": "ML.ENERGY Leaderboard",
+    "vendor": "ML.ENERGY",
+    "url": "https://ml.energy/leaderboard/",
+    "description": "Throughput (tok/s), TPOT, energy/request, batch sizes.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "benchmark",
+    "features": [
+      "Community/academic; reported actively maintained in 2025",
+      "Data: https://github.com/ml-energy/leaderboard/tree/master/data/llm_text_generation/chat"
+    ]
+  },
+  {
+    "name": "HF Optimum LLM-Perf Leaderboard",
+    "vendor": "Hugging Face",
+    "url": "https://huggingface.co/spaces/optimum/llm-perf-leaderboard",
+    "description": "Latency, throughput, energy, memory across hardware/model configs.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "maintenance",
+    "category": "benchmark",
+    "features": [
+      "Irregular updates; appears inactive since ~Dec 2024 - stale",
+      "Dataset: https://huggingface.co/datasets/optimum-benchmark/llm-perf-leaderboard"
+    ]
+  },
+  {
+    "name": "LLMPerf leaderboard",
+    "vendor": "Ray",
+    "url": "https://github.com/matanyaloewenthal/llmperf-leaderboard",
+    "description": "Output throughput and TTFT under reproducible request-length/concurrency settings.",
+    "speed_claim": "unverified",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "independent",
+    "status": "archived",
+    "category": "benchmark",
+    "features": [
+      "Historical / archived",
+      "Harness: https://github.com/ray-project/llmperf"
+    ]
+  },
+  {
+    "name": "H100 / H200 (Hopper)",
+    "vendor": "NVIDIA",
+    "url": "https://developer.nvidia.com/blog/nvidia-blackwell-delivers-massive-performance-leaps-in-mlperf-inference-v5-0/",
+    "description": "Industry inference baseline; FP8 Transformer Engine; H200 adds 141GB HBM3e.",
+    "speed_claim": "33,072 server tok/s on Llama 2 70B (8x H200, MLPerf v5.0)",
+    "speed_verified": true,
+    "speed_url": "https://developer.nvidia.com/blog/nvidia-blackwell-delivers-massive-performance-leaps-in-mlperf-inference-v5-0/",
+    "measured_date": "2025-04",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "MLPerf Inference v5.0: 34,988 offline tok/s too",
+      "The baseline everything else is compared against"
+    ]
+  },
+  {
+    "name": "B200 / GB200 NVL72 (Blackwell)",
+    "vendor": "NVIDIA",
+    "url": "https://developer.nvidia.com/blog/nvidia-blackwell-delivers-massive-performance-leaps-in-mlperf-inference-v5-0/",
+    "description": "192GB HBM3e/GPU, FP4 support, NVL72 rack-scale; TensorRT-LLM with in-flight batching and MTP speculation.",
+    "speed_claim": "98,443 server tok/s on Llama 2 70B (8x B200): 3.0x over H200 (MLPerf v5.0)",
+    "speed_verified": true,
+    "speed_url": "https://developer.nvidia.com/blog/nvidia-blackwell-delivers-massive-performance-leaps-in-mlperf-inference-v5-0/",
+    "measured_date": "2025-04",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "TensorRT-LLM claims Llama 4 at >40,000 tok/s on B200 (vendor-published)",
+      "DeepSeek-R1 world records claimed (vendor-published)"
+    ]
+  },
+  {
+    "name": "Groq LPU",
+    "vendor": "Groq",
+    "url": "https://pondero.ai/news/2026-08-26-nvidia-groq-3-lpx/",
+    "description": "Deterministic SRAM-only dataflow (no HBM), compiler-scheduled - built for low-latency decode.",
+    "speed_claim": "1,660+ tok/s Llama 3 70B with speculative decoding (vendor)",
+    "speed_verified": true,
+    "speed_url": "https://pondero.ai/news/2026-08-26-nvidia-groq-3-lpx/",
+    "measured_date": "2026-08",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "GroqCloud: the fastest GPU-alternative baseline before Cerebras pulled ahead",
+      "NVIDIA licensed Groq's chip technology for ~$20B (Dec 2025, reported, secondary source)"
+    ]
+  },
+  {
+    "name": "Groq 3 LPX",
+    "vendor": "NVIDIA",
+    "url": "https://www.techtimes.com/articles/325425/20260825/groq-3-lpx-hits-full-production-sram-decode-chip-reaches-3400-tokens-per-second.htm",
+    "description": "Vera Rubin-platform decode accelerator: 256 LP30 LPUs/rack, ~500MB SRAM/chip, no HBM.",
+    "speed_claim": "3,400 tok/s on Gemma 4 31B at 100K context (AA, Aug 2026)",
+    "speed_verified": true,
+    "speed_url": "https://www.techtimes.com/articles/325425/20260825/groq-3-lpx-hits-full-production-sram-decode-chip-reaches-3400-tokens-per-second.htm",
+    "measured_date": "2026-08",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "Prefill on Rubin GPUs, decode on LPUs",
+      "NVIDIA's '4x vs competing platforms' is vendor-published (competitor unnamed)"
+    ]
+  },
+  {
+    "name": "WSE-3 / CS-3",
+    "vendor": "Cerebras",
+    "url": "https://www.theregister.com/on-prem/2024/08/27/cerebras-gives-waferscale-chips-an-inferencing-twist/549643?td=readmore",
+    "description": "Whole-wafer die: 4T transistors, 900K cores, 44GB on-chip SRAM, 21 PB/s - weights stay on-wafer.",
+    "speed_claim": "2,522 tok/s Llama 4 Maverick per user (vendor); 969 tok/s Llama 3.1 405B (AA)",
+    "speed_verified": true,
+    "speed_url": "https://www.theregister.com/on-prem/2024/08/27/cerebras-gives-waferscale-chips-an-inferencing-twist/549643?td=readmore",
+    "measured_date": "2026-08",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "Vendor Llama 4 figure vs NVIDIA DGX B200's 1,038 - differing test conditions, directional",
+      "No HBM trips = extreme memory bandwidth for decode"
+    ]
+  },
+  {
+    "name": "SN40L RDU",
+    "vendor": "SambaNova",
+    "url": "https://sambanova.ai/press/fastest-deepseek-r1-671b-with-highest-efficiency",
+    "description": "Reconfigurable dataflow with 3-tier memory (SRAM+HBM+DRAM) for very large models.",
+    "speed_claim": "198 tok/s/user DeepSeek-R1 671B on 16 chips (Feb 2025)",
+    "speed_verified": true,
+    "speed_url": "https://sambanova.ai/press/fastest-deepseek-r1-671b-with-highest-efficiency",
+    "measured_date": "2025-02",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "'3x speed, 5x efficiency of latest GPUs' (vendor)",
+      "Full 16-bit precision at speed"
+    ]
+  },
+  {
+    "name": "TPU v6 Trillium",
+    "vendor": "Google",
+    "url": "https://www.nextplatform.com/ai/2025/09/17/google-shows-off-its-inference-scale-and-prowess/1642358",
+    "description": "Inference-tuned TPU generation (JAX + native PyTorch/TorchTPU).",
+    "speed_claim": "800 tok/s on Llama 2 70B (MLPerf, via The Next Platform, Sep 2025)",
+    "speed_verified": true,
+    "speed_url": "https://www.nextplatform.com/ai/2025/09/17/google-shows-off-its-inference-scale-and-prowess/1642358",
+    "measured_date": "2025-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "Secondary source - directional"
+    ]
+  },
+  {
+    "name": "TPU v7 Ironwood",
+    "vendor": "Google",
+    "url": "https://www.ai-market-watch.com/news/google-tpu-runs-moonshot-ais-kimi-57-faster-than-nvidia-gpus-using-deepseeks-inf-yx0ofd",
+    "description": "192GB HBM/chip, 64MB software-managed VMEM per TensorCore enabling cross-layer weight prefetch.",
+    "speed_claim": "Kimi K3: 709 tok/s on 16 TPU v7 vs 452 on 16 GB200, same vLLM engine (Sep 2026)",
+    "speed_verified": true,
+    "speed_url": "https://www.ai-market-watch.com/news/google-tpu-runs-moonshot-ais-kimi-57-faster-than-nvidia-gpus-using-deepseeks-inf-yx0ofd",
+    "measured_date": "2026-09",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "57% gap published by Inferact (vLLM founding team startup); not independently reproduced"
+    ]
+  },
+  {
+    "name": "Inferentia2 / Trainium2",
+    "vendor": "AWS",
+    "url": "https://aws.amazon.com/blogs/machine-learning/faster-llms-with-speculative-decoding-and-aws-inferentia2/",
+    "description": "Cloud-native inference silicon via Neuron SDK (NxD Inference, speculative decoding).",
+    "speed_claim": "Llama-3-70B median per-token latency 21.4ms, ~47 tok/s (AWS blog)",
+    "speed_verified": true,
+    "speed_url": "https://aws.amazon.com/blogs/machine-learning/faster-llms-with-speculative-decoding-and-aws-inferentia2/",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "Trainium2 is the actively developed line",
+      "Third-party '35-45 tok/s' figures unverified"
+    ]
+  },
+  {
+    "name": "Gaudi 3",
+    "vendor": "Intel",
+    "url": "https://www.techradar.com/pro/intel-piles-pressure-on-nvidia-with-launch-of-new-ai-accelerator-that-is-faster-and-cheaper-than-the-h100-but-will-it-be-enough-to-keep-up-with-the-stunningly-fast-h200",
+    "description": "64 TPCs + 8 MMEs, 128GB HBM2e (3.7 TB/s), FP8, Ethernet scale-out; vLLM backend.",
+    "speed_claim": "2x H100 throughput on LLaMA 2 70B at large batch (Intel, 2024)",
+    "speed_verified": true,
+    "speed_url": "https://www.techradar.com/pro/intel-piles-pressure-on-nvidia-with-launch-of-new-ai-accelerator-that-is-faster-and-cheaper-than-the-h100-but-will-it-be-enough-to-keep-up-with-the-stunningly-fast-h200",
+    "measured_date": "2024",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "30% over H200 on 7B/70B/Falcon-180B claimed (vendor, 2024 - take with salt)"
+    ]
+  },
+  {
+    "name": "Instinct MI300X / MI325X",
+    "vendor": "AMD",
+    "url": "https://moreh.io/technical-report/21k-output-tokens-per-second-deepseek-inference-on-amd-instinct-mi300x-gpus-with-expert-parallelism-251113/",
+    "description": "192GB HBM3 / 256GB HBM3e, 5.3 TB/s; ROCm + vLLM with expert parallelism for MoE.",
+    "speed_claim": "DeepSeek-R1 decode >21,000 tok/s on 8x MI300X (Moreh, AMD partner)",
+    "speed_verified": true,
+    "speed_url": "https://moreh.io/technical-report/21k-output-tokens-per-second-deepseek-inference-on-amd-instinct-mi300x-gpus-with-expert-parallelism-251113/",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "AMD ROCm docs: ~12.4k tok/s/node with EP16 on MI300X (vendor)",
+      "Independent paper (2026): Kimi-K2.5 (1T-param MoE) at 7,327 tok/s on 4x MI325X"
+    ]
+  },
+  {
+    "name": "Corsair (d-Matrix)",
+    "vendor": "d-Matrix",
+    "url": "https://www.techradar.com/pro/microsoft-backed-a-tiny-hardware-startup-that-just-launched-its-first-ai-processor-that-does-inference-without-gpu-or-expensive-hbm-memory-and-a-key-nvidia-partner-is-collaborating-with-it?rand=1339",
+    "description": "Digital in-memory compute (DIMC): logic embedded in SRAM bit cells, no HBM, PCIe Gen5 cards.",
+    "speed_claim": "60,000 tok/s Llama 3 8B per server; 30,000 tok/s Llama 3 70B per rack (2025)",
+    "speed_verified": true,
+    "speed_url": "https://www.techradar.com/pro/microsoft-backed-a-tiny-hardware-startup-that-just-launched-its-first-ai-processor-that-does-inference-without-gpu-or-expensive-hbm-memory-and-a-key-nvidia-partner-is-collaborating-with-it?rand=1339",
+    "measured_date": "2025",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "Inference without GPU or HBM",
+      "Deployed via Parasail for decode"
+    ]
+  },
+  {
+    "name": "speedAI240 Slim",
+    "vendor": "Untether AI",
+    "url": "https://eetimes.com/amd-and-untether-take-on-nvidia-in-mlperf-benchmarks/",
+    "description": "At-memory compute, 1400+ RISC-V cores, 75W PCIe card - efficiency-first edge/datacenter inference.",
+    "speed_claim": "3x the queries/sec/watt of 8x NVIDIA H200 (MLPerf ResNet-50, 2024)",
+    "speed_verified": true,
+    "speed_url": "https://eetimes.com/amd-and-untether-take-on-nvidia-in-mlperf-benchmarks/",
+    "measured_date": "2024",
+    "claim_type": "independent",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "Independent benchmark, vendor-submitted; pre-LLM-era workload"
+    ]
+  },
+  {
+    "name": "ACF SuperNIC / EMFASYS",
+    "vendor": "Enfabrica",
+    "url": "https://blog.enfabrica.net/enfabrica-unveils-industrys-first-ethernet-based-ai-memory-fabric-system-for-efficient-8078bd89fdcb?gi=bb7dc18d4956",
+    "description": "Converged 3.2 Tbps Ethernet fabric + CXL memory pooling: offloads KV-cache/prefill memory from GPU HBM.",
+    "speed_claim": "Up to 50% lower cost per token (2025-2026)",
+    "speed_verified": true,
+    "speed_url": "https://blog.enfabrica.net/enfabrica-unveils-industrys-first-ethernet-based-ai-memory-fabric-system-for-efficient-8078bd89fdcb?gi=bb7dc18d4956",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "NVIDIA license-plus-acquihire reported (single secondary source - unverified)"
+    ]
+  },
+  {
+    "name": "Sohu",
+    "vendor": "Etched",
+    "url": "https://www.techtimes.com/articles/319393/20260630/transformer-chip-startup-etched-exits-stealth-800m-raised-1b-contracts.htm",
+    "description": "Transformer-only ASIC: attention wired into silicon, no general-purpose cores (TSMC N4P).",
+    "speed_claim": "500,000 tok/s on Llama 70B claimed; first racks shipped summer 2026",
+    "speed_verified": true,
+    "speed_url": "https://www.techtimes.com/articles/319393/20260630/transformer-chip-startup-etched-exits-stealth-800m-raised-1b-contracts.htm",
+    "measured_date": "2026-06",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "$800M raised, $1B contracts (reported)",
+      "Independent verification pending"
+    ]
+  },
+  {
+    "name": "Asimov",
+    "vendor": "Positron AI",
+    "url": "https://www.techtimes.com/articles/327400/20260912/positron-ai-raises-875m-prove-commodity-memory-can-beat-hbm-inference.htm",
+    "description": "Inference ASIC on commodity LPDDR5X (288GB-2.3TB/chip) instead of HBM - capacity over peak bandwidth.",
+    "speed_claim": "26x tokens/$ vs GB300 NVL72 (simulation only)",
+    "speed_verified": false,
+    "speed_url": "",
+    "measured_date": "unknown",
+    "claim_type": "vendor-reported",
+    "status": "commercial",
+    "category": "hardware",
+    "features": [
+      "Atlas (FPGA gen) deployed at OCI (vendor-published)",
+      "$875M raised Sept 2026 (reported)"
+    ]
+  },
+  {
+    "name": "RNGD",
+    "vendor": "FuriosaAI",
+    "url": "https://furiosa.ai/rngd",
+    "description": "Tensor Contraction Processor (TCP), TSMC 5nm, 48GB HBM3 (1.5 TB/s), 180W - multi-instance virtualization.",
+    "speed_claim": "3,200-3,300 tok/s Llama 3.1 8B FP8 per chip (vendor)",
+    "speed_verified": true,
+    "speed_url": "https://furiosa.ai/rngd",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "60 users @ 40 tok/s per server",
+      "LG AI Research production perf/watt validation (customer/third-party)"
+    ]
+  },
+  {
+    "name": "Napier",
+    "vendor": "Tensordyne",
+    "url": "https://primanews.org/inside-the-inference-hardware-revolution-of-2026/",
+    "description": "Logarithmic number system (exponent-stored arithmetic) rack-scale inference hardware.",
+    "speed_claim": "1,300 tok/s per user at <1/10th the power of comparable NVIDIA hardware (2026)",
+    "speed_verified": true,
+    "speed_url": "https://primanews.org/inside-the-inference-hardware-revolution-of-2026/",
+    "measured_date": "2026",
+    "claim_type": "vendor-reported",
+    "status": "active",
+    "category": "hardware",
+    "features": [
+      "Via secondary report - treat as directional"
+    ]
+  }
+]
